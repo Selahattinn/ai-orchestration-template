@@ -14,6 +14,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 - Model and budget policy: `docs/MODEL_POLICY.md`, `docs/COST_LATENCY_BUDGET.md`
 - Coding style profile: `docs/CODING_STYLE.md`
 - Logging policy: `docs/LOGGING_STANDARD.md`
+- File hierarchy policy: `docs/FILE_HIERARCHY.md`
 
 ## Execution Flow
 

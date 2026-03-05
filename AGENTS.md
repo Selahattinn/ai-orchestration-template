@@ -19,10 +19,12 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `docs/QUALITY_GATE.md`
 - `docs/CODING_STYLE.md`
 - `docs/LOGGING_STANDARD.md`
+- `docs/FILE_HIERARCHY.md`
 - `skills/*/SKILL.md`
 - `examples/TASK_EXAMPLES.md`
 - `examples/golden/*`
 - `examples/style/*`
+- `examples/structure/*`
 
 ## Agent Record Schema
 

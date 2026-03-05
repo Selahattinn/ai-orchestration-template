@@ -12,7 +12,8 @@
 8. Validate with golden references under `examples/golden/`.
 9. Configure personal style in `docs/CODING_STYLE.md`.
 10. Configure logging policy in `docs/LOGGING_STANDARD.md`.
-11. Save each run using `templates/RUN_LOG_TEMPLATE.md`.
+11. Configure project layout policy in `docs/FILE_HIERARCHY.md`.
+12. Save each run using `templates/RUN_LOG_TEMPLATE.md`.
 
 ## Governance Rule
 

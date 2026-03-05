@@ -20,6 +20,7 @@ Use this checklist before accepting generated code output.
 - [ ] Import groups follow stdlib -> third-party -> internal order.
 - [ ] Function-level comments are present where required.
 - [ ] `ErrorBag` usage is consistent at domain boundaries.
+- [ ] File/package layout follows `docs/FILE_HIERARCHY.md`.
 
 ### Logging
 - [ ] Logging follows `docs/LOGGING_STANDARD.md`.

@@ -41,3 +41,12 @@ Record key decisions and why they changed.
 - Consequences: Better consistency for operational logs, easier review of logging behavior, and clearer incident diagnostics.
 - Supersedes: none
 - Links: docs/LOGGING_STANDARD.md, docs/QUALITY_GATE.md
+
+### DEC-004: File Hierarchy Contract
+- Date: 2026-03-05
+- Status: accepted
+- Context: Team wants predictable package boundaries and test-double placement.
+- Decision: Adopt `cmd/internal/pkg/mocks` hierarchy with clear placement rules and anti-patterns.
+- Consequences: Better codebase navigation, cleaner boundaries, and fewer architecture drifts.
+- Supersedes: none
+- Links: docs/FILE_HIERARCHY.md, docs/CODING_STYLE.md

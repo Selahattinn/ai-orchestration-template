@@ -11,6 +11,7 @@ Enforce the project-specific Go coding style profile before final review.
 ## Source of Truth
 - `docs/CODING_STYLE.md`
 - `docs/LOGGING_STANDARD.md`
+- `docs/FILE_HIERARCHY.md`
 
 ## Use When
 - Any implementation proposal or code diff is produced.
@@ -26,6 +27,7 @@ Enforce the project-specific Go coding style profile before final review.
 - Logging uses `zap` with `SugaredLogger`.
 - Logging levels are used correctly (`Debugw/Infow/Warnw/Errorw`).
 - Structured fields and sensitive-data masking follow `docs/LOGGING_STANDARD.md`.
+- Package placement follows `cmd/internal/pkg/mocks` hierarchy rules.
 
 ## Output Contract
 - Style compliance score (0-4)

@@ -178,3 +178,13 @@ Rules:
 - Include stable keys such as `request_id`, `operation`, and `error_code` where available.
 - Do not log secrets or raw sensitive data.
 - Keep one event per meaningful state transition.
+
+## 9) Package and File Hierarchy
+
+Follow `docs/FILE_HIERARCHY.md` for project layout decisions.
+
+Rules:
+- Keep startup/bootstrap in `cmd/`.
+- Keep service-specific business code in `internal/`.
+- Put only proven reusable libraries in `pkg/`.
+- Keep test doubles in `mocks/` with predictable naming.
