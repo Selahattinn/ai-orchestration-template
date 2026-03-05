@@ -58,6 +58,8 @@ Each agent entry must include:
 2. What Changed
 3. Why It Matters
 4. Risks and Trade-offs
-5. Validation
-6. Follow-ups
+5. Breaking Changes
+6. Migration Notes
+7. Validation
+8. Follow-ups
 - Before opening or updating a PR, generate draft body and wait for user approval.
