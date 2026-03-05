@@ -13,7 +13,7 @@
 ## Stage 3: Architecture (`architecture`)
 - Agent: `architect`
 - Skill: `skills/architecture/SKILL.md`
-- Output: component topology and dependency rules
+- Output: strict architecture artifact (decision, boundaries, dependency matrix, data ownership, DI plan via `google/wire`, risks, verdict)
 
 ## Stage 4: Testing Plan (`testing_plan`)
 - Agent: `test_strategist`

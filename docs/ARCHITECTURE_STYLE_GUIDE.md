@@ -27,11 +27,27 @@ Why default:
 - `domain` and use-case logic in `internal/` core packages.
 - Ports as interfaces at boundaries.
 - Adapters in `internal/platform` and `internal/transport`.
+- Dependency flow remains inward toward the core.
 
 ### Factory Pattern (Supporting)
 - Use factories for composition and dependency assembly.
 - Typical places: `cmd/<service>/main.go`, `internal/app/bootstrap`.
 - Do not use factory as a replacement for architecture boundaries.
+
+### Google Wire (Required for DI)
+- Use [`google/wire`](https://github.com/google/wire) for compile-time dependency injection.
+- Keep provider sets grouped by boundary (for example `transportSet`, `serviceSet`, `platformSet`).
+- Generate wiring only in bootstrap/composition layer.
+- Do not expose `wire` concerns to domain code.
+
+## Non-Negotiable Rules
+
+- Core packages must not depend on transport/framework/platform implementation packages.
+- Circular dependencies are `BLOCK`.
+- Boundary crossings without port interfaces are `BLOCK`.
+- Data ownership ambiguity for the same resource is `BLOCK`.
+- Manual dependency graph assembly in non-bootstrap packages is `BLOCK`.
+- `google/wire` is mandatory unless an explicit waiver exists.
 
 ## Selection Rules
 
@@ -43,9 +59,12 @@ Why default:
 
 - Follow `docs/FILE_HIERARCHY.md` and align architecture choice to package layout.
 - Keep adapters and transport concerns outside core business logic.
+- Keep DI files under bootstrap-oriented locations (for example `internal/app/bootstrap/wire.go`).
 
 ## Done Criteria
 
 - `architecture_preference` is set in `docs/PROJECT_PROFILE.md`.
 - Architecture rationale is documented for chosen style.
 - Factory usage is limited to composition/bootstrap concerns.
+- `google/wire` usage and provider-set strategy are documented.
+- Non-negotiable boundary rules are explicitly listed.

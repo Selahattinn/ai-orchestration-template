@@ -48,6 +48,14 @@ Use this checklist before accepting generated code output.
 - [ ] Next actions are clear and prioritized.
 - [ ] Architecture decisions align with `docs/PROJECT_PROFILE.md` and `docs/ARCHITECTURE_STYLE_GUIDE.md`.
 
+### Architecture Discipline
+- [ ] Architecture stage output includes the full contract from `skills/architecture/SKILL.md`.
+- [ ] Dependency matrix explicitly lists allowed and forbidden directions.
+- [ ] No circular dependency or core-to-adapter dependency exists.
+- [ ] Data ownership and transaction boundaries are explicit.
+- [ ] `google/wire` dependency injection plan exists and is limited to bootstrap layer.
+- [ ] Manual wiring outside approved bootstrap locations is absent.
+
 ### Mandatory Enforcement
 - [ ] `docs/MANDATORY_ENFORCEMENT_POLICY.md` is satisfied.
 - [ ] No orchestration bypass occurred, or active waiver is documented.
