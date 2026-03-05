@@ -37,6 +37,7 @@
 - Every stage output must follow `workflows/AGENT_IO_CONTRACT.md`.
 - Every stage must satisfy `workflows/STAGE_CONTRACT.md` before advancing.
 - Architecture stage must resolve pattern from `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`.
+- If selected pattern is `hexagonal`, architecture output must satisfy `docs/HEXAGONAL_BOUNDARY_STANDARD.md`.
 - Every full run must be scored with `docs/EVAL_RUBRIC.md`.
 - Every full run must be logged with `templates/RUN_LOG_TEMPLATE.md`.
 - Orchestration bypass is prohibited under `docs/MANDATORY_ENFORCEMENT_POLICY.md`.

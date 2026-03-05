@@ -23,10 +23,13 @@ Route architecture evaluation to the selected pattern-specific skill and enforce
 ## Routing Contract
 
 1. Read `architecture_preference` from `docs/PROJECT_PROFILE.md`.
-2. Resolve the pattern in `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`.
-3. If pattern is missing or not `active`, return `BLOCK` unless an explicit waiver exists.
-4. Load the mapped pattern skill file and execute its rules.
-5. Return final decision with both router-level and pattern-level checks.
+2. Normalize accepted aliases before registry lookup:
+- `clean-layered` -> `clean_layered`
+- `service-layered` -> `service_layered`
+3. Resolve the normalized pattern in `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`.
+4. If pattern is missing or not `active`, return `BLOCK` unless an explicit waiver exists.
+5. Load the mapped pattern skill file and execute its rules.
+6. Return final decision with both router-level and pattern-level checks.
 
 ## Shared Non-Negotiable Rules
 
@@ -44,6 +47,7 @@ Architecture stage output must include:
 
 1. `Selected Pattern`
 - `pattern_id`
+- `normalized_pattern_id`
 - `skill_file`
 - `status`
 

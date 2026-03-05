@@ -31,6 +31,7 @@ Why default:
 - Adapters in `internal/platform` and `internal/transport`.
 - Dependency flow remains inward toward the core.
 - Pattern skill: `skills/architecture-hexagonal/SKILL.md`
+- Boundary standard: `docs/HEXAGONAL_BOUNDARY_STANDARD.md`
 
 ### Clean Layered
 - Use explicit layers with strict transition order.
@@ -44,7 +45,7 @@ Why default:
 
 ### Factory Pattern (Supporting)
 - Use factories for composition and dependency assembly.
-- Typical places: `cmd/<service>/main.go`, `internal/app/bootstrap`.
+- Typical places: `cmd/<service>/main.go`, `internal/bootstrap`.
 - Do not use factory as a replacement for architecture boundaries.
 
 ### Google Wire (Required for DI)
@@ -74,7 +75,8 @@ Why default:
 
 - Follow `docs/FILE_HIERARCHY.md` and align architecture choice to package layout.
 - Keep adapters and transport concerns outside core business logic.
-- Keep DI files under bootstrap-oriented locations (for example `internal/app/bootstrap/wire.go`).
+- Keep DI files under bootstrap-oriented locations (for example `internal/bootstrap/wire.go`).
+- When `architecture_preference=hexagonal`, enforce `docs/HEXAGONAL_BOUNDARY_STANDARD.md`.
 
 ## Done Criteria
 
@@ -84,3 +86,4 @@ Why default:
 - `google/wire` usage and provider-set strategy are documented.
 - Non-negotiable boundary rules are explicitly listed.
 - Pattern-to-skill mapping is defined in `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`.
+- Hexagonal boundary rules are documented in `docs/HEXAGONAL_BOUNDARY_STANDARD.md`.

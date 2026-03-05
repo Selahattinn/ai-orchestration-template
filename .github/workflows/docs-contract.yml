@@ -47,6 +47,7 @@ jobs:
               'docs/PROJECT_PROFILE.md',
               'docs/BOOTSTRAP_INTERVIEW.md',
               'docs/ARCHITECTURE_STYLE_GUIDE.md',
+              'docs/HEXAGONAL_BOUNDARY_STANDARD.md',
               'docs/MANDATORY_ENFORCEMENT_POLICY.md',
               'docs/BRANCH_PROTECTION.md',
               'docs/NOW_NEXT_LATER.md',
@@ -78,6 +79,7 @@ jobs:
               'docs/PROJECT_PROFILE.md',
               'docs/BOOTSTRAP_INTERVIEW.md',
               'docs/ARCHITECTURE_STYLE_GUIDE.md',
+              'docs/HEXAGONAL_BOUNDARY_STANDARD.md',
               'docs/MANDATORY_ENFORCEMENT_POLICY.md',
               'docs/BRANCH_PROTECTION.md',
           ]
@@ -132,17 +134,65 @@ jobs:
           architecture_registry = repo / 'workflows/ARCHITECTURE_PATTERN_REGISTRY.md'
           if architecture_registry.exists():
               registry = architecture_registry.read_text(encoding='utf-8')
-              required_registry_rules = [
-                  '`hexagonal`',
-                  '`clean_layered`',
-                  '`service_layered`',
-                  'skills/architecture-hexagonal/SKILL.md',
-                  'skills/architecture-clean-layered/SKILL.md',
-                  'skills/architecture-service-layered/SKILL.md',
+              row_pattern = re.compile(
+                  r'^\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|',
+                  re.MULTILINE,
+              )
+              rows = row_pattern.findall(registry)
+
+              if not rows:
+                  errors.append('Architecture registry has no valid pattern rows')
+              else:
+                  seen_pattern_ids = set()
+                  active_count = 0
+                  default_count = 0
+
+                  for pattern_id, skill_rel, status, default in rows:
+                      pattern_id = pattern_id.strip()
+                      skill_rel = skill_rel.strip()
+                      status_norm = status.strip().lower()
+                      default_norm = default.strip().lower()
+
+                      if pattern_id in seen_pattern_ids:
+                          errors.append(f'Duplicate pattern_id in architecture registry: {pattern_id}')
+                      seen_pattern_ids.add(pattern_id)
+
+                      if status_norm not in {'active', 'deprecated', 'experimental'}:
+                          errors.append(
+                              f'Architecture registry invalid status for {pattern_id}: {status_norm}'
+                          )
+
+                      skill_path = repo / skill_rel
+                      if not skill_path.exists():
+                          errors.append(
+                              f'Architecture registry skill file does not exist for {pattern_id}: {skill_rel}'
+                          )
+
+                      if status_norm == 'active':
+                          active_count += 1
+
+                      if default_norm in {'yes', 'true'}:
+                          default_count += 1
+
+                  if active_count == 0:
+                      errors.append('Architecture registry must have at least one active pattern')
+                  if default_count != 1:
+                      errors.append(
+                          'Architecture registry must have exactly one default pattern row'
+                      )
+
+          hexagonal_standard = repo / 'docs/HEXAGONAL_BOUNDARY_STANDARD.md'
+          if hexagonal_standard.exists():
+              content = hexagonal_standard.read_text(encoding='utf-8')
+              required_hex_rules = [
+                  '## Canonical Hierarchy (Hexagonal Mode)',
+                  '## Inbound/Outbound Semantics',
+                  '## Dependency Direction Rules',
+                  '## Block Conditions',
               ]
-              for rule in required_registry_rules:
-                  if rule not in registry:
-                      errors.append(f'Architecture registry missing rule: {rule}')
+              for rule in required_hex_rules:
+                  if rule not in content:
+                      errors.append(f'Hexagonal standard missing section: {rule}')
 
           pr_template = repo / '.github/pull_request_template.md'
           if pr_template.exists():

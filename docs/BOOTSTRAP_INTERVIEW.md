@@ -12,7 +12,7 @@ Run this interview only when `docs/PROJECT_PROFILE.md` has missing mandatory fie
 2. What are the top 3 critical flows for first release?
 3. Which integrations are required (DB, cache, queue, external APIs)?
 4. What is the priority mode: safety/correctness, speed/cost, or balanced?
-5. Which architecture preference is expected (hexagonal, clean-layered, service-layered)?
+5. Which architecture preference is expected (`hexagonal`, `clean_layered`, `service_layered`)? Accepted aliases: `clean-layered` -> `clean_layered`, `service-layered` -> `service_layered`.
 
 ## Optional Questions
 

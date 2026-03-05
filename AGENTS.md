@@ -24,6 +24,7 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `docs/PROJECT_PROFILE.md`
 - `docs/BOOTSTRAP_INTERVIEW.md`
 - `docs/ARCHITECTURE_STYLE_GUIDE.md`
+- `docs/HEXAGONAL_BOUNDARY_STANDARD.md`
 - `docs/MANDATORY_ENFORCEMENT_POLICY.md`
 - `docs/BRANCH_PROTECTION.md`
 - `docs/CODING_STYLE.md`

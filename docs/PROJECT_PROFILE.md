@@ -18,7 +18,7 @@ Persistent project context for profile-driven orchestration.
 - critical_flows:
 - integrations:
 - priority_mode: safety_correctness | speed_cost | balanced
-- architecture_preference: active `pattern_id` from `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`
+- architecture_preference: active `pattern_id` from `workflows/ARCHITECTURE_PATTERN_REGISTRY.md` (aliases `clean-layered` and `service-layered` normalize to underscore form)
 - architecture_notes:
 
 ## Optional Inputs
