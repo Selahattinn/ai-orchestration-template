@@ -53,7 +53,7 @@ def slugify(value: str) -> str:
     chars: list[str] = []
     prev_dash = False
     for ch in value.strip().lower():
-        if ch.isalnum():
+        if ("a" <= ch <= "z") or ("0" <= ch <= "9"):
             chars.append(ch)
             prev_dash = False
             continue
