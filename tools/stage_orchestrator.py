@@ -64,6 +64,13 @@ def slugify(value: str) -> str:
     return slug or "run"
 
 
+def expected_stage_worktree(run_id: str, stage_id: str, stage_index: int) -> tuple[str, str]:
+    safe_run_id = slugify(run_id)
+    expected_path = f"worktrees/{safe_run_id}/{stage_index:02d}_{stage_id}"
+    expected_branch = f"codex/{safe_run_id}-{slugify(stage_id)}"
+    return expected_path, expected_branch
+
+
 def parse_stage_contract(contract_path: Path) -> list[dict[str, str]]:
     if not contract_path.exists():
         raise ContractError(f"missing stage contract: {contract_path}")
@@ -210,6 +217,10 @@ def validate_manifest(
 
     seen_worktree_paths: set[str] = set()
     seen_worktree_branches: set[str] = set()
+    manifest_run_id = manifest.get("run_id")
+    if not isinstance(manifest_run_id, str) or not manifest_run_id.strip():
+        manifest_run_id = "run"
+
     seen_pending = False
     for idx, stage in enumerate(stages):
         if idx >= len(stage_records):
@@ -227,6 +238,12 @@ def validate_manifest(
         expected_artifact = stage["artifact"]
         if record.get("artifact") != expected_artifact:
             errors.append(f"stage {stage['stage_id']} artifact must be {expected_artifact}")
+
+        expected_worktree_path, expected_worktree_branch = expected_stage_worktree(
+            manifest_run_id,
+            stage["stage_id"],
+            idx,
+        )
 
         worktree_path_raw = record.get("worktree_path")
         if not isinstance(worktree_path_raw, str) or not worktree_path_raw.strip():
@@ -253,6 +270,12 @@ def validate_manifest(
                 if normalized_worktree_path in seen_worktree_paths:
                     errors.append(f"duplicate worktree_path: {normalized_worktree_path}")
                 seen_worktree_paths.add(normalized_worktree_path)
+                if normalized_worktree_path != expected_worktree_path:
+                    errors.append(
+                        "stage "
+                        f"{stage['stage_id']} worktree_path must be "
+                        f"{expected_worktree_path}"
+                    )
 
         worktree_branch = record.get("worktree_branch")
         if not isinstance(worktree_branch, str) or not worktree_branch.strip():
@@ -266,6 +289,12 @@ def validate_manifest(
             if not worktree_branch.startswith("codex/"):
                 errors.append(
                     f"stage {stage['stage_id']} worktree_branch must start with codex/"
+                )
+            if worktree_branch != expected_worktree_branch:
+                errors.append(
+                    "stage "
+                    f"{stage['stage_id']} worktree_branch must be "
+                    f"{expected_worktree_branch}"
                 )
 
         status = record.get("status")

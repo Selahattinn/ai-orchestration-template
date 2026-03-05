@@ -8,9 +8,11 @@ Mandatory git worktree policy for all orchestrated runs.
 - Worktree strategy must be `per_stage`.
 - Every stage must execute in its own dedicated git worktree.
 - A stage cannot start unless its worktree is prepared and assigned.
-- Worktree branch naming must follow `codex/<run-id>-<stage-id>`.
-- Worktree path naming must follow `worktrees/<run-id>/<order>_<stage-id>`.
+- Worktree branch naming must follow `codex/<normalized-run-id>-<normalized-stage-id>`.
+- Worktree path naming must follow `worktrees/<normalized-run-id>/<order>_<stage-id>`.
 - Reusing one worktree for multiple stages is prohibited.
+
+`normalized-*` means lowercase slug format (`[a-z0-9-]`) used by `tools/stage_orchestrator.py`.
 
 ## Stage 0 Requirement
 
