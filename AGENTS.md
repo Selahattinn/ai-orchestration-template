@@ -63,3 +63,4 @@ Each agent entry must include:
 7. Validation
 8. Follow-ups
 - Before opening or updating a PR, generate draft body and wait for user approval.
+- CI enforcement is defined in `.github/workflows/pr-body-contract.yml`.
