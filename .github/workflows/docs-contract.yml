@@ -28,6 +28,7 @@ jobs:
               'AGENTS.md',
               'README.md',
               '.github/pull_request_template.md',
+              'workflows/ORCHESTRATION_FLOW.md',
               'docs/MODEL_POLICY.md',
               'docs/COST_LATENCY_BUDGET.md',
               'docs/SECURITY_POLICY.md',

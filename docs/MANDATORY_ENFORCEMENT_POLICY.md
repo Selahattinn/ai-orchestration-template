@@ -30,7 +30,7 @@ Waivers are temporary and must be removed after expiry.
 ## Run-Level Requirements
 
 - Run log must explicitly state ruleset mode and orchestration compliance.
-- Final review must fail when orchestration is bypassed.
+- Final review must fail when orchestration is bypassed without an active waiver.
 - Missing mandatory standards => `BLOCK`.
 
 ## Done Criteria
