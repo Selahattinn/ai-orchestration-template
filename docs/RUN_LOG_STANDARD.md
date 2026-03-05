@@ -16,6 +16,8 @@ Every orchestration run should produce one run log entry.
 - fallback_events
 - rules_mode
 - orchestration_mode
+- worktree_mode
+- worktree_strategy
 - orchestration_bypassed
 - waiver_id
 - waiver_owner
@@ -27,6 +29,7 @@ Every orchestration run should produce one run log entry.
 - final_decision
 - open_risks
 - next_actions
+- stage_worktree_map
 
 ## Minimal Rules
 
@@ -36,6 +39,7 @@ Every orchestration run should produce one run log entry.
 - Include links to generated artifacts.
 - Ensure `run_manifest_path` points to a valid manifest for this run.
 - Explicitly record mandatory-mode compliance and bypass status.
+- Record stage-level worktree path and branch mapping.
 
 ## Done Criteria
 

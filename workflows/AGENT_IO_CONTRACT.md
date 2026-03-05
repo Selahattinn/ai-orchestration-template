@@ -9,6 +9,7 @@ Standard input/output rules to reduce ambiguity between handoffs.
 - `goal`
 - `constraints`
 - `required_artifacts`
+- `stage_worktree`
 - `previous_stage_output`
 
 ## Shared Output Envelope
@@ -19,6 +20,7 @@ Standard input/output rules to reduce ambiguity between handoffs.
 - `risks`
 - `next_handoff_artifact`
 - `done_criteria_check`
+- `worktree_compliance` (required: stage worktree path + branch + policy check)
 - `style_notes` (required for implementation-related stages)
 - `policy_compliance` (required: rules mode + orchestration mode + waiver status)
 
@@ -27,4 +29,5 @@ Standard input/output rules to reduce ambiguity between handoffs.
 - If required input is missing, agent must return `blocked` with missing fields.
 - Output must include at least one explicit assumption.
 - Handoff artifact names must be stable and unique per stage.
+- Agent output is invalid when `stage_worktree` is missing or inconsistent with run manifest.
 - If `policy_compliance.orchestration_bypassed == true`, return `blocked` unless waiver exists.

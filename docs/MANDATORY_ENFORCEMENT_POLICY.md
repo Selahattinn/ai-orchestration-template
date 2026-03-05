@@ -6,6 +6,7 @@ Global execution policy for all template-driven runs.
 
 - rules_mode: mandatory_all
 - orchestration_mode: mandatory
+- worktree_mode: mandatory
 - bypass_policy: prohibited
 - exception_policy: explicit_waiver_only
 
@@ -13,6 +14,7 @@ Global execution policy for all template-driven runs.
 
 - All standards under `docs/` are mandatory inputs, not optional guidance.
 - Every run must execute through defined orchestration stages from `workflows/ORCHESTRATION_FLOW.md`.
+- Every stage must execute in a dedicated git worktree defined by `docs/WORKTREE_STANDARD.md`.
 - Direct single-agent bypass output is not allowed.
 - Any exception requires a documented waiver with owner, reason, and expiry date.
 
@@ -38,4 +40,5 @@ Waivers are temporary and must be removed after expiry.
 
 - Policy flags are present and unchanged.
 - Bypass prohibition is explicit.
+- Worktree mandatory mode is explicit.
 - Waiver mechanism is documented and time-bounded.

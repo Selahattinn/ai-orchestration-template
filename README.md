@@ -24,6 +24,7 @@ It is intentionally markdown-first so you can fork it and adapt agent behavior q
 - Architecture pattern registry with pattern-specific skills
 - Hexagonal boundary standard (project hierarchy + inbound/outbound contracts)
 - Mandatory enforcement mode for all standards and orchestration
+- Mandatory per-stage git worktree policy for all agents
 - Stage-based orchestrator tool with artifact gating
 - CI run-contract checks for stage order, artifact presence, and waiver validity
 - Branch protection baseline for mandatory checks
@@ -55,11 +56,12 @@ The repo is a planning and governance layer for orchestration.
 18. Confirm architecture choice via [`docs/ARCHITECTURE_STYLE_GUIDE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/ARCHITECTURE_STYLE_GUIDE.md)
 19. Ensure selected pattern exists in [`workflows/ARCHITECTURE_PATTERN_REGISTRY.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/workflows/ARCHITECTURE_PATTERN_REGISTRY.md)
 20. Enforce strict policy via [`docs/MANDATORY_ENFORCEMENT_POLICY.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/MANDATORY_ENFORCEMENT_POLICY.md)
-21. Track roadmap items in [`docs/NOW_NEXT_LATER.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NOW_NEXT_LATER.md)
-22. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
-23. Define stage artifacts in [`workflows/STAGE_CONTRACT.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/workflows/STAGE_CONTRACT.md)
-24. Initialize/advance runs with `python3 tools/stage_orchestrator.py`
-25. Enforce required checks from [`docs/BRANCH_PROTECTION.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/BRANCH_PROTECTION.md)
+21. Enforce worktree policy via [`docs/WORKTREE_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/WORKTREE_STANDARD.md)
+22. Track roadmap items in [`docs/NOW_NEXT_LATER.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NOW_NEXT_LATER.md)
+23. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
+24. Define stage artifacts in [`workflows/STAGE_CONTRACT.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/workflows/STAGE_CONTRACT.md)
+25. Initialize/advance runs with `python3 tools/stage_orchestrator.py`
+26. Enforce required checks from [`docs/BRANCH_PROTECTION.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/BRANCH_PROTECTION.md)
 
 ## Governance Stack
 
@@ -84,5 +86,6 @@ The repo is a planning and governance layer for orchestration.
 - Architecture pattern registry: [`workflows/ARCHITECTURE_PATTERN_REGISTRY.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/workflows/ARCHITECTURE_PATTERN_REGISTRY.md)
 - Hexagonal boundary standard: [`docs/HEXAGONAL_BOUNDARY_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/HEXAGONAL_BOUNDARY_STANDARD.md)
 - Mandatory enforcement policy: [`docs/MANDATORY_ENFORCEMENT_POLICY.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/MANDATORY_ENFORCEMENT_POLICY.md)
+- Worktree standard: [`docs/WORKTREE_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/WORKTREE_STANDARD.md)
 - Stage contract: [`workflows/STAGE_CONTRACT.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/workflows/STAGE_CONTRACT.md)
 - Branch protection standard: [`docs/BRANCH_PROTECTION.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/BRANCH_PROTECTION.md)

@@ -17,6 +17,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 - Model and budget policy: `docs/MODEL_POLICY.md`, `docs/COST_LATENCY_BUDGET.md`
 - Architecture style guide: `docs/ARCHITECTURE_STYLE_GUIDE.md`
 - Mandatory enforcement policy: `docs/MANDATORY_ENFORCEMENT_POLICY.md`
+- Worktree policy: `docs/WORKTREE_STANDARD.md`
 - Coding style profile: `docs/CODING_STYLE.md`
 - Logging policy: `docs/LOGGING_STANDARD.md`
 - File hierarchy policy: `docs/FILE_HIERARCHY.md`
@@ -26,11 +27,17 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 
 ## Execution Flow
 
+0. Worktree setup
+- Complete Stage 0 (`worktree_setup`) first.
+- Assign one dedicated worktree path and branch per stage.
+- Fail fast if worktree mapping is incomplete or duplicated.
+
 1. Scope and assumptions
 - If project profile is incomplete, run `docs/BOOTSTRAP_INTERVIEW.md` first.
 - Clarify constraints, non-goals, and acceptance criteria.
 - Mark unknowns explicitly.
 - Confirm strict mode (`rules_mode: mandatory_all`, `orchestration_mode: mandatory`).
+- Confirm worktree strict mode (`worktree_mode: mandatory`, `worktree_strategy: per_stage`).
 
 2. Design output
 - Produce API/design artifacts first.
@@ -68,6 +75,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 
 - Implementation plan
 - Stage manifest (`manifest.json`) aligned with `workflows/STAGE_CONTRACT.md`
+- Worktree setup artifact (`artifacts/00_worktree_setup.md`)
 - Stage artifacts for each ordered stage
 - Code change summary
 - Test plan and test evidence

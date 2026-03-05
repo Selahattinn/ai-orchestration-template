@@ -7,6 +7,9 @@
 - stage_artifact_paths:
 - rules_mode: mandatory_all
 - orchestration_mode: mandatory
+- worktree_mode: mandatory
+- worktree_strategy: per_stage
+- stage_worktree_map:
 - orchestration_bypassed: false
 - waiver_id: none
 - waiver_owner:

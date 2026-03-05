@@ -95,3 +95,12 @@ Record key decisions and why they changed.
 - Consequences: Stronger consistency and governance; reduced flexibility for ad-hoc shortcuts.
 - Supersedes: none
 - Links: docs/MANDATORY_ENFORCEMENT_POLICY.md, workflows/ORCHESTRATION_FLOW.md
+
+### DEC-010: Mandatory Per-Stage Worktree Execution
+- Date: 2026-03-05
+- Status: accepted
+- Context: Team requires strong isolation and reproducibility between agents and stages.
+- Decision: Add mandatory Stage 0 worktree setup and enforce `worktree_mode: mandatory` with one dedicated worktree per stage.
+- Consequences: Better isolation and traceability; more setup overhead for every run.
+- Supersedes: none
+- Links: docs/WORKTREE_STANDARD.md, workflows/STAGE_CONTRACT.md, tools/stage_orchestrator.py

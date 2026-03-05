@@ -15,6 +15,8 @@ REQUIRED_MANIFEST_FIELDS = [
     "date_utc",
     "rules_mode",
     "orchestration_mode",
+    "worktree_mode",
+    "worktree_strategy",
     "orchestration_bypassed",
     "waiver",
     "stage_order",
@@ -45,6 +47,21 @@ def parse_utc(value: str) -> datetime:
     if parsed.tzinfo is None or parsed.utcoffset() is None:
         raise ValueError("timezone offset is required")
     return parsed.astimezone(timezone.utc)
+
+
+def slugify(value: str) -> str:
+    chars: list[str] = []
+    prev_dash = False
+    for ch in value.strip().lower():
+        if ch.isalnum():
+            chars.append(ch)
+            prev_dash = False
+            continue
+        if not prev_dash:
+            chars.append("-")
+            prev_dash = True
+    slug = "".join(chars).strip("-")
+    return slug or "run"
 
 
 def parse_stage_contract(contract_path: Path) -> list[dict[str, str]]:
@@ -82,11 +99,14 @@ def parse_stage_contract(contract_path: Path) -> list[dict[str, str]]:
 
 
 def default_manifest(run_id: str, stages: list[dict[str, str]]) -> dict[str, Any]:
+    safe_run_id = slugify(run_id)
     return {
         "run_id": run_id,
         "date_utc": utc_now_iso(),
         "rules_mode": "mandatory_all",
         "orchestration_mode": "mandatory",
+        "worktree_mode": "mandatory",
+        "worktree_strategy": "per_stage",
         "orchestration_bypassed": False,
         "waiver": {
             "waiver_id": "",
@@ -101,9 +121,13 @@ def default_manifest(run_id: str, stages: list[dict[str, str]]) -> dict[str, Any
                 "stage_id": stage["stage_id"],
                 "status": "pending",
                 "artifact": stage["artifact"],
+                "worktree_path": f"worktrees/{safe_run_id}/{idx:02d}_{stage['stage_id']}",
+                "worktree_branch": (
+                    f"codex/{safe_run_id}-{slugify(stage['stage_id'])}"
+                ),
                 "completed_at_utc": "",
             }
-            for stage in stages
+            for idx, stage in enumerate(stages)
         ],
         "run_log_path": "run_log.md",
     }
@@ -166,6 +190,12 @@ def validate_manifest(
     if manifest.get("orchestration_mode") != "mandatory":
         errors.append("orchestration_mode must be mandatory")
 
+    if manifest.get("worktree_mode") != "mandatory":
+        errors.append("worktree_mode must be mandatory")
+
+    if manifest.get("worktree_strategy") != "per_stage":
+        errors.append("worktree_strategy must be per_stage")
+
     expected_order = [stage["stage_id"] for stage in stages]
     if manifest.get("stage_order") != expected_order:
         errors.append("stage_order does not match stage contract")
@@ -178,6 +208,8 @@ def validate_manifest(
     if len(stage_records) != len(stages):
         errors.append("stages length does not match stage contract")
 
+    seen_worktree_paths: set[str] = set()
+    seen_worktree_branches: set[str] = set()
     seen_pending = False
     for idx, stage in enumerate(stages):
         if idx >= len(stage_records):
@@ -195,6 +227,39 @@ def validate_manifest(
         expected_artifact = stage["artifact"]
         if record.get("artifact") != expected_artifact:
             errors.append(f"stage {stage['stage_id']} artifact must be {expected_artifact}")
+
+        worktree_path_raw = record.get("worktree_path")
+        if not isinstance(worktree_path_raw, str) or not worktree_path_raw.strip():
+            errors.append(f"stage {stage['stage_id']} missing worktree_path")
+            worktree_path_raw = ""
+        else:
+            if worktree_path_raw in seen_worktree_paths:
+                errors.append(f"duplicate worktree_path: {worktree_path_raw}")
+            seen_worktree_paths.add(worktree_path_raw)
+
+            if not worktree_path_raw.startswith("worktrees/"):
+                errors.append(
+                    f"stage {stage['stage_id']} worktree_path must start with worktrees/"
+                )
+            resolved_worktree = resolve_under(repo_root, worktree_path_raw)
+            if not is_within_dir(resolved_worktree, repo_root):
+                errors.append(
+                    f"stage {stage['stage_id']} worktree_path escapes repo: {worktree_path_raw}"
+                )
+
+        worktree_branch = record.get("worktree_branch")
+        if not isinstance(worktree_branch, str) or not worktree_branch.strip():
+            errors.append(f"stage {stage['stage_id']} missing worktree_branch")
+            worktree_branch = ""
+        else:
+            if worktree_branch in seen_worktree_branches:
+                errors.append(f"duplicate worktree_branch: {worktree_branch}")
+            seen_worktree_branches.add(worktree_branch)
+
+            if not worktree_branch.startswith("codex/"):
+                errors.append(
+                    f"stage {stage['stage_id']} worktree_branch must start with codex/"
+                )
 
         status = record.get("status")
         if status not in {"pending", "completed"}:
@@ -327,10 +392,16 @@ def cmd_status(args: argparse.Namespace) -> int:
     print(f"run_id: {manifest.get('run_id')}")
     print(f"rules_mode: {manifest.get('rules_mode')}")
     print(f"orchestration_mode: {manifest.get('orchestration_mode')}")
+    print(f"worktree_mode: {manifest.get('worktree_mode')}")
+    print(f"worktree_strategy: {manifest.get('worktree_strategy')}")
     print(f"orchestration_bypassed: {manifest.get('orchestration_bypassed')}")
     print("stages:")
     for stage in manifest.get("stages", []):
-        print(f"- {stage.get('stage_id')}: {stage.get('status')} ({stage.get('artifact')})")
+        print(
+            f"- {stage.get('stage_id')}: {stage.get('status')} "
+            f"({stage.get('artifact')}) "
+            f"[{stage.get('worktree_path')} @ {stage.get('worktree_branch')}]"
+        )
 
     return 0
 

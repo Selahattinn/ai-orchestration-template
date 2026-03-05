@@ -5,13 +5,16 @@
 - project_context: template-bootstrap
 - input_summary: baseline contract validation run
 - run_manifest_path: runs/latest/manifest.json
-- stage_artifact_paths: runs/latest/artifacts/01_api_scope.md, runs/latest/artifacts/02_go_fit_check.md, runs/latest/artifacts/03_architecture.md, runs/latest/artifacts/04_testing_plan.md, runs/latest/artifacts/05_style_gate.md, runs/latest/artifacts/06_final_review.md
-- stages_executed: 6
-- agent_sequence: api_designer -> go_idiom_guard -> architect -> test_strategist -> style_guard -> reviewer
+- stage_artifact_paths: runs/latest/artifacts/00_worktree_setup.md, runs/latest/artifacts/01_api_scope.md, runs/latest/artifacts/02_go_fit_check.md, runs/latest/artifacts/03_architecture.md, runs/latest/artifacts/04_testing_plan.md, runs/latest/artifacts/05_style_gate.md, runs/latest/artifacts/06_final_review.md
+- stages_executed: 7
+- agent_sequence: worktree_manager -> api_designer -> go_idiom_guard -> architect -> test_strategist -> style_guard -> reviewer
 - model_usage: documented-in-pr
 - fallback_events: none
 - rules_mode: mandatory_all
 - orchestration_mode: mandatory
+- worktree_mode: mandatory
+- worktree_strategy: per_stage
+- stage_worktree_map: worktree_setup=worktrees/latest/00_worktree_setup@codex/latest-worktree-setup; api_scope=worktrees/latest/01_api_scope@codex/latest-api-scope; go_fit_check=worktrees/latest/02_go_fit_check@codex/latest-go-fit-check; architecture=worktrees/latest/03_architecture@codex/latest-architecture; testing_plan=worktrees/latest/04_testing_plan@codex/latest-testing-plan; style_gate=worktrees/latest/05_style_gate@codex/latest-style-gate; final_review=worktrees/latest/06_final_review@codex/latest-final-review
 - orchestration_bypassed: false
 - waiver_id:
 - waiver_owner:
