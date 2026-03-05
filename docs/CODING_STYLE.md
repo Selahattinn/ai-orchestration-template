@@ -1,0 +1,157 @@
+# Coding Style Profile
+
+Personal coding profile for Go code generation and review.
+
+## 1) Handler and Interface Pattern
+
+Prefer interface-first construction with private implementation structs.
+
+```go
+// Handler defines service behavior.
+type Handler interface {
+	// TODO: method signatures
+}
+
+type handler struct {
+	// deps
+}
+
+// NewHandler constructs a Handler implementation.
+func NewHandler() Handler {
+	return &handler{}
+}
+```
+
+Rules:
+- Public constructor returns interface where practical.
+- Concrete implementation stays unexported unless required.
+- Keep constructor signatures explicit and dependency-driven.
+
+## 2) Context-First Function Signatures
+
+`ctx context.Context` must exist in every function that can touch I/O, remote systems, DB, queues, or long-running operations.
+
+```go
+// CreateUser creates a user with timeout/cancel support.
+func (h *handler) CreateUser(ctx context.Context, req CreateUserRequest) error {
+	// ...
+	return nil
+}
+```
+
+Rules:
+- `ctx` is the first parameter after receiver.
+- Do not create background contexts inside business logic.
+- Propagate `ctx` through all downstream calls.
+
+## 3) Test Strategy Preference (TDD)
+
+Default workflow is red -> green -> refactor.
+
+Rules:
+- Start with failing tests that represent expected behavior.
+- Implement minimum code to pass.
+- Refactor only after green.
+- Keep one behavior per test focus.
+
+## 4) Commenting Style
+
+Prefer function-level comments for intent. Inline comments only for complex local breakpoints.
+
+Rules:
+- Every exported function should have a top comment.
+- Non-exported function comments are recommended when intent is non-obvious.
+- Inline comments must explain why, not what.
+
+## 5) Import Ordering
+
+Use three import groups in this exact order:
+1. Standard library
+2. Third-party packages
+3. Internal project packages
+
+```go
+import (
+	"fmt"
+	"os/exec"
+	"time"
+
+	gwda "github.com/livetesting-company/live-testing-ios-go-wda-lib"
+	"github.com/sirupsen/logrus"
+
+	"github.com/device-park/device-park-ios-health-service/internal/device/models"
+)
+```
+
+## 6) Error Model: ErrorBag
+
+Use the custom `ErrorBag` pattern for app-level errors.
+
+```go
+type ErrorBag struct {
+	Code       int    `json:"code"`
+	Cause      error  `json:"cause"`
+	Message    string `json:"message"`
+	HTTPStatus int    `json:"status"`
+}
+
+func (e *ErrorBag) Error() string {
+	if e == nil {
+		return "<nil>"
+	}
+	if e.Cause != nil {
+		return e.Cause.Error()
+	}
+	return "unknown error"
+}
+
+func (e *ErrorBag) Unwrap() error {
+	if e == nil {
+		return nil
+	}
+	return e.Cause
+}
+
+func (e *ErrorBag) GetCode() int {
+	if e == nil {
+		return 0
+	}
+	return e.Code
+}
+
+func (e *ErrorBag) GetCause() error {
+	if e == nil {
+		return nil
+	}
+	return e.Cause
+}
+
+func (e *ErrorBag) GetMessage() string {
+	if e == nil {
+		return ""
+	}
+	return e.Message
+}
+
+func (e *ErrorBag) GetHTTPStatus() int {
+	if e == nil || e.HTTPStatus == 0 {
+		return fiber.StatusInternalServerError
+	}
+	return e.HTTPStatus
+}
+
+func NewErrorBag(code int, msg string, status int, cause error) *ErrorBag {
+	return &ErrorBag{Code: code, Message: msg, HTTPStatus: status, Cause: cause}
+}
+```
+
+Rules:
+- Wrap lower-level errors into `ErrorBag` at domain boundaries.
+- Preserve original cause in `Cause`.
+- Keep `Code` stable and documented.
+- Ensure HTTP mapping is explicit.
+- Framework-specific defaults (for example Fiber status constants) are allowed.
+
+## 7) Style Enforcement Priority
+
+When style conflicts with generic suggestions, this profile wins unless project constraints explicitly override it.
