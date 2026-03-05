@@ -233,10 +233,6 @@ def validate_manifest(
             errors.append(f"stage {stage['stage_id']} missing worktree_path")
             worktree_path_raw = ""
         else:
-            if worktree_path_raw in seen_worktree_paths:
-                errors.append(f"duplicate worktree_path: {worktree_path_raw}")
-            seen_worktree_paths.add(worktree_path_raw)
-
             if not worktree_path_raw.startswith("worktrees/"):
                 errors.append(
                     f"stage {stage['stage_id']} worktree_path must start with worktrees/"
@@ -246,6 +242,17 @@ def validate_manifest(
                 errors.append(
                     f"stage {stage['stage_id']} worktree_path escapes repo: {worktree_path_raw}"
                 )
+            else:
+                normalized_worktree_path = resolved_worktree.relative_to(repo_root).as_posix()
+                if not normalized_worktree_path.startswith("worktrees/"):
+                    errors.append(
+                        "stage "
+                        f"{stage['stage_id']} worktree_path must resolve under worktrees/: "
+                        f"{normalized_worktree_path}"
+                    )
+                if normalized_worktree_path in seen_worktree_paths:
+                    errors.append(f"duplicate worktree_path: {normalized_worktree_path}")
+                seen_worktree_paths.add(normalized_worktree_path)
 
         worktree_branch = record.get("worktree_branch")
         if not isinstance(worktree_branch, str) or not worktree_branch.strip():
