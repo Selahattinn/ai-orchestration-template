@@ -30,9 +30,12 @@ Use this checklist before accepting generated code output.
 - [ ] Structured keys are present and sensitive data is not leaked.
 
 ### Testing
+- [ ] Testing approach follows `docs/TESTING_STANDARD.md`.
 - [ ] Unit/integration scope is defined.
 - [ ] Critical paths have test evidence or a clear gap note.
 - [ ] Regression risks are documented.
+- [ ] Test naming and structure are behavior-oriented.
+- [ ] Flaky-test risks are explicitly addressed.
 
 ### Security and Safety
 - [ ] No secrets or sensitive data leakage.

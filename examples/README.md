@@ -10,3 +10,5 @@
 - `structure/BAD_TREE.md`: hierarchy anti-pattern examples
 - `naming/GOOD.md`: naming-conformant examples
 - `naming/BAD.md`: naming anti-pattern examples
+- `testing/GOOD.md`: testing-conformant examples
+- `testing/BAD.md`: testing anti-pattern examples

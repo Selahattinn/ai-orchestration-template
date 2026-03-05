@@ -16,6 +16,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 - Logging policy: `docs/LOGGING_STANDARD.md`
 - File hierarchy policy: `docs/FILE_HIERARCHY.md`
 - Naming policy: `docs/NAMING_STANDARD.md`
+- Testing policy: `docs/TESTING_STANDARD.md`
 
 ## Execution Flow
 
@@ -30,6 +31,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 3. Implementation output
 - Generate code with file-level intent and change rationale.
 - Prefer small, reviewable increments.
+- Follow TDD sequence for behavior-critical changes.
 
 4. Verification output
 - Define and run unit/integration checks where applicable.

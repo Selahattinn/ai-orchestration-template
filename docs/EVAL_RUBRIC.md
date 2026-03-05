@@ -19,6 +19,7 @@ Use this rubric to score every orchestration run.
 ### Completeness
 - Did the run produce all required artifacts?
 - Are open questions and assumptions explicit?
+- Is test strategy coverage aligned with `docs/TESTING_STANDARD.md`?
 
 ### Consistency
 - Are outputs aligned across stages and handoffs?

@@ -21,12 +21,14 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `docs/LOGGING_STANDARD.md`
 - `docs/FILE_HIERARCHY.md`
 - `docs/NAMING_STANDARD.md`
+- `docs/TESTING_STANDARD.md`
 - `skills/*/SKILL.md`
 - `examples/TASK_EXAMPLES.md`
 - `examples/golden/*`
 - `examples/style/*`
 - `examples/structure/*`
 - `examples/naming/*`
+- `examples/testing/*`
 
 ## Agent Record Schema
 

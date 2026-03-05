@@ -14,7 +14,8 @@
 10. Configure logging policy in `docs/LOGGING_STANDARD.md`.
 11. Configure project layout policy in `docs/FILE_HIERARCHY.md`.
 12. Configure naming policy in `docs/NAMING_STANDARD.md`.
-13. Save each run using `templates/RUN_LOG_TEMPLATE.md`.
+13. Configure testing policy in `docs/TESTING_STANDARD.md`.
+14. Save each run using `templates/RUN_LOG_TEMPLATE.md`.
 
 ## Governance Rule
 

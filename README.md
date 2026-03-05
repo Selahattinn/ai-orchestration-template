@@ -16,6 +16,7 @@ It is intentionally markdown-first so you can fork it and adapt agent behavior q
 - `zap` SugaredLogger logging standard with level policy
 - Go file hierarchy contract (`cmd/internal/pkg/mocks`)
 - Go naming contract for packages, types, methods, files, and mocks
+- Testing contract for TDD, test layers, mocks, and CI expectations
 
 ## Core Principle
 
@@ -38,7 +39,8 @@ The repo is a planning and governance layer for orchestration.
 12. Apply logging policy from [`docs/LOGGING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/LOGGING_STANDARD.md)
 13. Apply file hierarchy policy from [`docs/FILE_HIERARCHY.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/FILE_HIERARCHY.md)
 14. Apply naming policy from [`docs/NAMING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NAMING_STANDARD.md)
-15. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
+15. Apply testing policy from [`docs/TESTING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/TESTING_STANDARD.md)
+16. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
 
 ## Governance Stack
 
@@ -54,3 +56,4 @@ The repo is a planning and governance layer for orchestration.
 - Logging standard: [`docs/LOGGING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/LOGGING_STANDARD.md)
 - File hierarchy standard: [`docs/FILE_HIERARCHY.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/FILE_HIERARCHY.md)
 - Naming standard: [`docs/NAMING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NAMING_STANDARD.md)
+- Testing standard: [`docs/TESTING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/TESTING_STANDARD.md)

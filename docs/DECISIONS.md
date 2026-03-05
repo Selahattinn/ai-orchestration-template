@@ -59,3 +59,12 @@ Record key decisions and why they changed.
 - Consequences: More readable code, easier onboarding, and fewer semantic mismatches.
 - Supersedes: none
 - Links: docs/NAMING_STANDARD.md, docs/QUALITY_GATE.md
+
+### DEC-006: Testing Standard Contract
+- Date: 2026-03-05
+- Status: accepted
+- Context: Team wants consistent TDD workflow and predictable test quality across services.
+- Decision: Introduce `docs/TESTING_STANDARD.md` and enforce it via style, eval, and quality gates.
+- Consequences: Better regression safety, clearer test expectations, and faster PR review alignment.
+- Supersedes: none
+- Links: docs/TESTING_STANDARD.md, docs/QUALITY_GATE.md

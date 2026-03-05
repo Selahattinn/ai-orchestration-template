@@ -198,3 +198,12 @@ Rules:
 - Prefer verb-first method names for actions.
 - Avoid generic package names like `utils` and `common`.
 - Keep file names responsibility-driven and predictable.
+
+## 11) Testing Conventions
+
+Follow `docs/TESTING_STANDARD.md` for testing decisions.
+
+Rules:
+- Use behavior-oriented test names.
+- Prefer table-driven style where multiple cases exist.
+- Keep tests deterministic and avoid `time.Sleep`-based synchronization.
