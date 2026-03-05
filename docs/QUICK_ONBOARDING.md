@@ -5,8 +5,9 @@ Use this guide to bootstrap a new fork quickly.
 ## Minute 0-3: Fork and Baseline
 
 1. Fork repository.
-2. Confirm required docs are present.
-3. Read `README.md` and `AGENTS.md` once end-to-end.
+2. If you will use Codex on PRs, create/attach a Codex environment for the fork before requesting `@codex` actions.
+3. Confirm required docs are present.
+4. Read `README.md` and `AGENTS.md` once end-to-end.
 
 ## Minute 3-7: Project Configuration
 
