@@ -13,6 +13,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 - Agent definitions: `workflows/AGENT_REGISTRY.md`
 - Agent I/O contract: `workflows/AGENT_IO_CONTRACT.md`
 - Stage contract: `workflows/STAGE_CONTRACT.md`
+- Architecture pattern registry: `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`
 - Model and budget policy: `docs/MODEL_POLICY.md`, `docs/COST_LATENCY_BUDGET.md`
 - Architecture style guide: `docs/ARCHITECTURE_STYLE_GUIDE.md`
 - Mandatory enforcement policy: `docs/MANDATORY_ENFORCEMENT_POLICY.md`
@@ -35,6 +36,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 - Produce API/design artifacts first.
 - Resolve handoff artifacts before coding starts.
 - Mark Stage 1 artifact complete before Stage 2 starts.
+- For architecture, route to the selected pattern skill via `skills/architecture/SKILL.md`.
 
 3. Implementation output
 - Generate code with file-level intent and change rationale.

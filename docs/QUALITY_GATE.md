@@ -48,6 +48,19 @@ Use this checklist before accepting generated code output.
 - [ ] Next actions are clear and prioritized.
 - [ ] Architecture decisions align with `docs/PROJECT_PROFILE.md` and `docs/ARCHITECTURE_STYLE_GUIDE.md`.
 
+### Architecture Discipline
+- [ ] Architecture stage output includes the full contract from `skills/architecture/SKILL.md`.
+- [ ] Selected architecture pattern is active in `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`.
+- [ ] Pattern-specific skill output is present for the selected architecture.
+- [ ] If selected pattern is `hexagonal`, output satisfies `docs/HEXAGONAL_BOUNDARY_STANDARD.md`.
+- [ ] Inbound/outbound ports and adapters are explicitly mapped.
+- [ ] Inbound -> use case -> outbound interaction map is present.
+- [ ] Dependency matrix explicitly lists allowed and forbidden directions.
+- [ ] No circular dependency or core-to-adapter dependency exists.
+- [ ] Data ownership and transaction boundaries are explicit.
+- [ ] `google/wire` dependency injection plan exists and is limited to bootstrap layer, or an active waiver is documented.
+- [ ] Manual wiring outside approved bootstrap locations is absent.
+
 ### Mandatory Enforcement
 - [ ] `docs/MANDATORY_ENFORCEMENT_POLICY.md` is satisfied.
 - [ ] No orchestration bypass occurred, or active waiver is documented.

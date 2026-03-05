@@ -13,7 +13,7 @@
 ## Stage 3: Architecture (`architecture`)
 - Agent: `architect`
 - Skill: `skills/architecture/SKILL.md`
-- Output: component topology and dependency rules
+- Output: routed architecture artifact (selected pattern, pattern-specific report, dependency matrix, data ownership, DI plan via `google/wire`, risks, verdict)
 
 ## Stage 4: Testing Plan (`testing_plan`)
 - Agent: `test_strategist`
@@ -36,6 +36,8 @@
 - `done` is allowed only after reviewer stage.
 - Every stage output must follow `workflows/AGENT_IO_CONTRACT.md`.
 - Every stage must satisfy `workflows/STAGE_CONTRACT.md` before advancing.
+- Architecture stage must resolve pattern from `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`.
+- If selected pattern is `hexagonal`, architecture output must satisfy `docs/HEXAGONAL_BOUNDARY_STANDARD.md`.
 - Every full run must be scored with `docs/EVAL_RUBRIC.md`.
 - Every full run must be logged with `templates/RUN_LOG_TEMPLATE.md`.
 - Orchestration bypass is prohibited under `docs/MANDATORY_ENFORCEMENT_POLICY.md`.

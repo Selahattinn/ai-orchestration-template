@@ -18,7 +18,7 @@ Persistent project context for profile-driven orchestration.
 - critical_flows:
 - integrations:
 - priority_mode: safety_correctness | speed_cost | balanced
-- architecture_preference: hexagonal | clean_layered | service_layered
+- architecture_preference: active `pattern_id` from `workflows/ARCHITECTURE_PATTERN_REGISTRY.md` (aliases `clean-layered` and `service-layered` normalize to underscore form)
 - architecture_notes:
 
 ## Optional Inputs
@@ -43,4 +43,5 @@ Persistent project context for profile-driven orchestration.
 
 - Repository language is explicitly fixed to English.
 - Mandatory fields are filled with non-placeholder values.
+- `architecture_preference` maps to an active pattern in registry.
 - Interview rerun is not required for unchanged fields.

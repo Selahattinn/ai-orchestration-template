@@ -9,6 +9,7 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `workflows/AGENT_IO_CONTRACT.md`
 - `workflows/ORCHESTRATION_FLOW.md`
 - `workflows/STAGE_CONTRACT.md`
+- `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`
 - `docs/MODEL_POLICY.md`
 - `docs/COST_LATENCY_BUDGET.md`
 - `docs/EVAL_RUBRIC.md`
@@ -23,6 +24,7 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `docs/PROJECT_PROFILE.md`
 - `docs/BOOTSTRAP_INTERVIEW.md`
 - `docs/ARCHITECTURE_STYLE_GUIDE.md`
+- `docs/HEXAGONAL_BOUNDARY_STANDARD.md`
 - `docs/MANDATORY_ENFORCEMENT_POLICY.md`
 - `docs/BRANCH_PROTECTION.md`
 - `docs/CODING_STYLE.md`
@@ -61,7 +63,10 @@ Each agent entry must include:
 
 - API Design
 - Go Idioms
-- Architecture
+- Architecture Router
+- Architecture Hexagonal
+- Architecture Clean Layered
+- Architecture Service Layered
 - Testing Strategy
 - Style Guard
 - Code Review

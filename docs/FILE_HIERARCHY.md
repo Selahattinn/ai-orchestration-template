@@ -17,9 +17,9 @@ Canonical Go project layout policy for this template.
 │   ├── transport/
 │   │   └── http/
 │   ├── platform/
-│   ├── config/
 │   ├── errors/
 │   └── observability/
+├── config/
 ├── pkg/
 │   └── <reusable-library>/
 ├── mocks/
@@ -45,11 +45,15 @@ Canonical Go project layout policy for this template.
 - `domain/`: entities, value objects, domain rules.
 - `service/`: business services.
 - `repository/`: repository interfaces and contracts.
-- `transport/http/`: handlers, DTO mapping, route registration.
+- `transport/http/`: inbound adapter layer (handlers, DTO mapping, route registration).
 - `platform/`: DB, cache, queue, external adapters.
-- `config/`: config models and loaders.
 - `errors/`: `ErrorBag` codes and mappings.
 - `observability/`: logger/tracer/metrics wiring.
+
+### `config/`
+- Configuration models, defaults, and loaders live at repository root.
+- Must be service-scoped configuration only; no business logic.
+- Keep environment parsing deterministic and testable.
 
 ### `pkg/`
 - Contains intentionally reusable libraries shared across projects.
@@ -66,7 +70,20 @@ Canonical Go project layout policy for this template.
 - If code is service-specific, place in `internal/`.
 - If code is reusable and stable, place in `pkg/`.
 - If code is startup-only, place in `cmd/`.
+- If code is service configuration, place in `config/` (root), not `internal/`.
 - If code is test double, place in `mocks/`.
+
+## Hexagonal Mode Mapping
+
+If `architecture_preference=hexagonal`, apply `docs/HEXAGONAL_BOUNDARY_STANDARD.md`.
+
+- `internal/domain` => domain model and rules (framework-agnostic).
+- `internal/app` or `internal/application` => use-case orchestration and port interfaces.
+- `internal/transport/*` => inbound adapters.
+- `internal/platform/*` => outbound adapters.
+- `cmd/*` + `internal/bootstrap` => `google/wire` composition only.
+
+Inbound/outbound boundaries must stay explicit even if package names vary.
 
 ## Anti-Patterns
 
