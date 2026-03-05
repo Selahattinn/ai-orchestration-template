@@ -21,6 +21,7 @@ Use this checklist before accepting generated code output.
 - [ ] Function-level comments are present where required.
 - [ ] `ErrorBag` usage is consistent at domain boundaries.
 - [ ] File/package layout follows `docs/FILE_HIERARCHY.md`.
+- [ ] Names follow `docs/NAMING_STANDARD.md` for package/type/method/file conventions.
 
 ### Logging
 - [ ] Logging follows `docs/LOGGING_STANDARD.md`.

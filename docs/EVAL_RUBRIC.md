@@ -37,6 +37,7 @@ Use this rubric to score every orchestration run.
 - Are context usage, import ordering, comments, and ErrorBag rules applied?
 - Are logging choices and levels aligned with `docs/LOGGING_STANDARD.md`?
 - Is package/file placement aligned with `docs/FILE_HIERARCHY.md`?
+- Are naming choices aligned with `docs/NAMING_STANDARD.md`?
 
 ## Final Grade
 

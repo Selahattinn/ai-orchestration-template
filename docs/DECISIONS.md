@@ -50,3 +50,12 @@ Record key decisions and why they changed.
 - Consequences: Better codebase navigation, cleaner boundaries, and fewer architecture drifts.
 - Supersedes: none
 - Links: docs/FILE_HIERARCHY.md, docs/CODING_STYLE.md
+
+### DEC-005: Naming Standard Contract
+- Date: 2026-03-05
+- Status: accepted
+- Context: Team wants consistent naming across packages, types, methods, files, and mocks.
+- Decision: Introduce a dedicated naming policy and enforce it in style and quality gates.
+- Consequences: More readable code, easier onboarding, and fewer semantic mismatches.
+- Supersedes: none
+- Links: docs/NAMING_STANDARD.md, docs/QUALITY_GATE.md

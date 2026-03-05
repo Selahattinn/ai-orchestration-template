@@ -15,6 +15,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 - Coding style profile: `docs/CODING_STYLE.md`
 - Logging policy: `docs/LOGGING_STANDARD.md`
 - File hierarchy policy: `docs/FILE_HIERARCHY.md`
+- Naming policy: `docs/NAMING_STANDARD.md`
 
 ## Execution Flow
 

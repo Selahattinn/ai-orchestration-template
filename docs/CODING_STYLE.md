@@ -188,3 +188,13 @@ Rules:
 - Keep service-specific business code in `internal/`.
 - Put only proven reusable libraries in `pkg/`.
 - Keep test doubles in `mocks/` with predictable naming.
+
+## 10) Naming Conventions
+
+Follow `docs/NAMING_STANDARD.md` for naming decisions.
+
+Rules:
+- Use explicit domain names for packages, types, and methods.
+- Prefer verb-first method names for actions.
+- Avoid generic package names like `utils` and `common`.
+- Keep file names responsibility-driven and predictable.
