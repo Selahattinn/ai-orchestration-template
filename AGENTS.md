@@ -47,3 +47,17 @@ Each agent entry must include:
 - Testing Strategy
 - Style Guard
 - Code Review
+
+## PR Description Rules
+
+- Default language is English unless user explicitly requests another language.
+- Use technical narrative style, not short generic bullet dumps.
+- Target length is 180-300 words for medium-size changes.
+- Required sections:
+1. Context
+2. What Changed
+3. Why It Matters
+4. Risks and Trade-offs
+5. Validation
+6. Follow-ups
+- Before opening or updating a PR, generate draft body and wait for user approval.
