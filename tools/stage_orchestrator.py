@@ -41,7 +41,10 @@ def utc_now_iso() -> str:
 
 def parse_utc(value: str) -> datetime:
     normalized = value.strip().replace("Z", "+00:00")
-    return datetime.fromisoformat(normalized)
+    parsed = datetime.fromisoformat(normalized)
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        raise ValueError("timezone offset is required")
+    return parsed.astimezone(timezone.utc)
 
 
 def parse_stage_contract(contract_path: Path) -> list[dict[str, str]]:
@@ -135,6 +138,14 @@ def display_path(path: Path, repo_root: Path) -> str:
         return str(path)
 
 
+def is_within_dir(path: Path, base_dir: Path) -> bool:
+    try:
+        path.relative_to(base_dir)
+        return True
+    except ValueError:
+        return False
+
+
 def validate_manifest(
     *,
     repo_root: Path,
@@ -167,6 +178,7 @@ def validate_manifest(
     if len(stage_records) != len(stages):
         errors.append("stages length does not match stage contract")
 
+    seen_pending = False
     for idx, stage in enumerate(stages):
         if idx >= len(stage_records):
             continue
@@ -181,19 +193,36 @@ def validate_manifest(
             errors.append(f"stage {stage['stage_id']} artifact must be {expected_artifact}")
 
         status = record.get("status")
+        if status not in {"pending", "completed"}:
+            errors.append(f"stage {stage['stage_id']} has invalid status: {status}")
+            continue
+
+        if seen_pending and status == "completed":
+            errors.append(
+                f"stage order violation: {stage['stage_id']} is completed after a pending stage"
+            )
+        if status == "pending":
+            seen_pending = True
+
         if require_complete and status != "completed":
             errors.append(f"stage {stage['stage_id']} status must be completed")
 
         artifact_path = resolve_under(run_dir, expected_artifact)
-        if status == "completed" and not non_empty_file(artifact_path):
-            errors.append(f"stage artifact missing or empty: {display_path(artifact_path, repo_root)}")
+        if not is_within_dir(artifact_path, run_dir):
+            errors.append(f"stage artifact path escapes run dir: {expected_artifact}")
+        elif status == "completed" and not non_empty_file(artifact_path):
+            errors.append(
+                f"stage artifact missing or empty: {display_path(artifact_path, repo_root)}"
+            )
 
     run_log_path = manifest.get("run_log_path", "")
     if not isinstance(run_log_path, str) or not run_log_path.strip():
         errors.append("run_log_path must be a non-empty string")
     else:
         resolved_log = resolve_under(run_dir, run_log_path)
-        if require_complete and not non_empty_file(resolved_log):
+        if not is_within_dir(resolved_log, run_dir):
+            errors.append("run_log_path must stay under the run directory")
+        elif require_complete and not non_empty_file(resolved_log):
             errors.append(f"run log missing or empty: {display_path(resolved_log, repo_root)}")
 
     bypassed = bool(manifest.get("orchestration_bypassed"))
