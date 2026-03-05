@@ -21,7 +21,7 @@ If any rule fails, return `BLOCK`:
 - Skip-layer dependencies are forbidden.
 - Upper layers must not leak transport/framework concerns into core layers.
 - Shared mutable state across layers without ownership is forbidden.
-- `google/wire` is mandatory in bootstrap layer for dependency assembly.
+- `google/wire` is mandatory in bootstrap layer for dependency assembly, unless an active waiver is explicitly documented.
 
 ## Required Output
 

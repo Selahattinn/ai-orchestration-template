@@ -55,7 +55,7 @@ Use this checklist before accepting generated code output.
 - [ ] Dependency matrix explicitly lists allowed and forbidden directions.
 - [ ] No circular dependency or core-to-adapter dependency exists.
 - [ ] Data ownership and transaction boundaries are explicit.
-- [ ] `google/wire` dependency injection plan exists and is limited to bootstrap layer.
+- [ ] `google/wire` dependency injection plan exists and is limited to bootstrap layer, or an active waiver is documented.
 - [ ] Manual wiring outside approved bootstrap locations is absent.
 
 ### Mandatory Enforcement

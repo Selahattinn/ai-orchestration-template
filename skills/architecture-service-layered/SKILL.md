@@ -21,7 +21,7 @@ If any rule fails, return `BLOCK`:
 - Repository contracts must be explicit; direct transport-to-storage coupling is forbidden.
 - Service layer must not depend on transport implementations.
 - Data ownership and write boundaries must be explicit.
-- `google/wire` is mandatory in bootstrap for dependency injection.
+- `google/wire` is mandatory in bootstrap for dependency injection, unless an active waiver is explicitly documented.
 
 ## Migration Triggers
 

@@ -21,7 +21,7 @@ If any rule fails, return `BLOCK`:
 - Every external dependency crossing must be behind explicit ports (interfaces).
 - Adapter code must stay outside core business logic packages.
 - Circular dependency is forbidden.
-- `google/wire` is mandatory for bootstrap dependency graph assembly.
+- `google/wire` is mandatory for bootstrap dependency graph assembly, unless an active waiver is explicitly documented.
 
 ## Required Output
 

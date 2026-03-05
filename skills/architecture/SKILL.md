@@ -36,7 +36,7 @@ If any rule fails, return `BLOCK`:
 - Dependency direction must be explicit and acyclic.
 - Data ownership must be explicit for each domain resource.
 - Boundary crossings must use explicit interfaces.
-- `google/wire` must be used for bootstrap dependency graph assembly.
+- `google/wire` must be used for bootstrap dependency graph assembly, unless an active waiver is explicitly documented (`waiver_id`, `waiver_owner`, `waiver_reason`, `waiver_expiry_utc`, `affected_rules`).
 
 ## Output Contract
 
@@ -50,6 +50,7 @@ Architecture stage output must include:
 2. `Router Checks`
 - Shared-rule validation results.
 - Profile-to-registry consistency check.
+- Waiver applicability check when DI exception is used.
 
 3. `Pattern Report`
 - Full report from the selected pattern skill.
