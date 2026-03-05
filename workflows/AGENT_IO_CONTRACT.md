@@ -20,9 +20,11 @@ Standard input/output rules to reduce ambiguity between handoffs.
 - `next_handoff_artifact`
 - `done_criteria_check`
 - `style_notes` (required for implementation-related stages)
+- `policy_compliance` (required: rules mode + orchestration mode + waiver status)
 
 ## Contract Rules
 
 - If required input is missing, agent must return `blocked` with missing fields.
 - Output must include at least one explicit assumption.
 - Handoff artifact names must be stable and unique per stage.
+- If `policy_compliance.orchestration_bypassed == true`, return `blocked` unless waiver exists.

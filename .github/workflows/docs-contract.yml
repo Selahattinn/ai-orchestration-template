@@ -43,6 +43,7 @@ jobs:
               'docs/PROJECT_PROFILE.md',
               'docs/BOOTSTRAP_INTERVIEW.md',
               'docs/ARCHITECTURE_STYLE_GUIDE.md',
+              'docs/MANDATORY_ENFORCEMENT_POLICY.md',
               'docs/NOW_NEXT_LATER.md',
               'docs/QUICK_ONBOARDING.md',
           ]
@@ -65,6 +66,7 @@ jobs:
               'docs/PROJECT_PROFILE.md',
               'docs/BOOTSTRAP_INTERVIEW.md',
               'docs/ARCHITECTURE_STYLE_GUIDE.md',
+              'docs/MANDATORY_ENFORCEMENT_POLICY.md',
           ]
 
           for rel in standards_with_done:
@@ -73,6 +75,29 @@ jobs:
                   content = path.read_text(encoding='utf-8')
                   if '## Done Criteria' not in content:
                       errors.append(f'Missing "## Done Criteria" section: {rel}')
+
+          mandatory_policy = repo / 'docs/MANDATORY_ENFORCEMENT_POLICY.md'
+          if mandatory_policy.exists():
+              content = mandatory_policy.read_text(encoding='utf-8')
+              required_flags = [
+                  'rules_mode: mandatory_all',
+                  'orchestration_mode: mandatory',
+                  'bypass_policy: prohibited',
+              ]
+              for flag in required_flags:
+                  if flag not in content:
+                      errors.append(f'Mandatory policy missing flag: {flag}')
+
+          orchestration_flow = repo / 'workflows/ORCHESTRATION_FLOW.md'
+          if orchestration_flow.exists():
+              flow = orchestration_flow.read_text(encoding='utf-8')
+              required_flow_rules = [
+                  'Orchestration bypass is prohibited',
+                  'Single-agent direct completion is invalid',
+              ]
+              for rule in required_flow_rules:
+                  if rule not in flow:
+                      errors.append(f'Orchestration flow missing rule: {rule}')
 
           pr_template = repo / '.github/pull_request_template.md'
           if pr_template.exists():

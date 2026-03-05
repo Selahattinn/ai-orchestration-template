@@ -8,6 +8,7 @@ Use this guide to bootstrap a new fork quickly.
 2. If you will use Codex on PRs, create/attach a Codex environment for the fork before requesting `@codex` actions.
 3. Confirm required docs are present.
 4. Read `README.md` and `AGENTS.md` once end-to-end.
+5. Confirm strict mode policy in `docs/MANDATORY_ENFORCEMENT_POLICY.md`.
 
 ## Minute 3-7: Project Configuration
 
@@ -33,6 +34,7 @@ Use this guide to bootstrap a new fork quickly.
 1. Ensure PR template is in place (`.github/pull_request_template.md`).
 2. Ensure `Breaking Changes`, `Migration Notes`, and `Validation` are non-empty in PRs.
 3. Add first follow-up items to `docs/NOW_NEXT_LATER.md`.
+4. Confirm no orchestration bypass is recorded without active waiver.
 
 ## Done Criteria
 

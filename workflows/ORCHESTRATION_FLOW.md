@@ -37,3 +37,5 @@
 - Every stage output must follow `workflows/AGENT_IO_CONTRACT.md`.
 - Every full run must be scored with `docs/EVAL_RUBRIC.md`.
 - Every full run must be logged with `templates/RUN_LOG_TEMPLATE.md`.
+- Orchestration bypass is prohibited under `docs/MANDATORY_ENFORCEMENT_POLICY.md`.
+- Single-agent direct completion is invalid unless a documented waiver exists.

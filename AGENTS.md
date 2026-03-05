@@ -22,6 +22,7 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `docs/PROJECT_PROFILE.md`
 - `docs/BOOTSTRAP_INTERVIEW.md`
 - `docs/ARCHITECTURE_STYLE_GUIDE.md`
+- `docs/MANDATORY_ENFORCEMENT_POLICY.md`
 - `docs/CODING_STYLE.md`
 - `docs/LOGGING_STANDARD.md`
 - `docs/FILE_HIERARCHY.md`
@@ -85,3 +86,9 @@ Each agent entry must include:
 - On first run, if `docs/PROJECT_PROFILE.md` is incomplete, run `docs/BOOTSTRAP_INTERVIEW.md`.
 - Persist answers in `docs/PROJECT_PROFILE.md` and do not re-ask the same questions.
 - In later runs, ask only for missing fields or explicit user-requested changes.
+
+## Mandatory Mode
+
+- Rules mode is `mandatory_all` (no optional standards).
+- Agent orchestration mode is `mandatory` (no single-agent bypass).
+- Any exception requires a documented waiver per `docs/MANDATORY_ENFORCEMENT_POLICY.md`.

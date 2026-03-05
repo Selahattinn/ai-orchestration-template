@@ -3,6 +3,13 @@
 - date_utc:
 - project_context:
 - input_summary:
+- rules_mode: mandatory_all
+- orchestration_mode: mandatory
+- orchestration_bypassed: false
+- waiver_id: none
+- waiver_owner:
+- waiver_reason:
+- waiver_expiry_utc:
 - final_decision:
 
 ## Stage Trace

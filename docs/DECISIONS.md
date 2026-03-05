@@ -86,3 +86,12 @@ Record key decisions and why they changed.
 - Consequences: Less repetitive questioning, stronger architectural consistency, and faster iteration in subsequent runs.
 - Supersedes: none
 - Links: docs/PROJECT_PROFILE.md, docs/BOOTSTRAP_INTERVIEW.md, docs/ARCHITECTURE_STYLE_GUIDE.md
+
+### DEC-009: Mandatory-All Rules and Mandatory Orchestration
+- Date: 2026-03-05
+- Status: accepted
+- Context: Team wants every template run to enforce all rules with no silent bypass.
+- Decision: Introduce strict enforcement policy (`mandatory_all`) and make orchestration flow mandatory unless explicit waiver exists.
+- Consequences: Stronger consistency and governance; reduced flexibility for ad-hoc shortcuts.
+- Supersedes: none
+- Links: docs/MANDATORY_ENFORCEMENT_POLICY.md, workflows/ORCHESTRATION_FLOW.md

@@ -14,6 +14,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 - Agent I/O contract: `workflows/AGENT_IO_CONTRACT.md`
 - Model and budget policy: `docs/MODEL_POLICY.md`, `docs/COST_LATENCY_BUDGET.md`
 - Architecture style guide: `docs/ARCHITECTURE_STYLE_GUIDE.md`
+- Mandatory enforcement policy: `docs/MANDATORY_ENFORCEMENT_POLICY.md`
 - Coding style profile: `docs/CODING_STYLE.md`
 - Logging policy: `docs/LOGGING_STANDARD.md`
 - File hierarchy policy: `docs/FILE_HIERARCHY.md`
@@ -26,6 +27,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 - If project profile is incomplete, run `docs/BOOTSTRAP_INTERVIEW.md` first.
 - Clarify constraints, non-goals, and acceptance criteria.
 - Mark unknowns explicitly.
+- Confirm strict mode (`rules_mode: mandatory_all`, `orchestration_mode: mandatory`).
 
 2. Design output
 - Produce API/design artifacts first.
@@ -64,3 +66,4 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 - Conflicting requirements unresolved
 - Security policy violation risk
 - Quality gate failure (see `docs/QUALITY_GATE.md`)
+- Orchestration bypass without active waiver

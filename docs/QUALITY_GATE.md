@@ -48,6 +48,12 @@ Use this checklist before accepting generated code output.
 - [ ] Next actions are clear and prioritized.
 - [ ] Architecture decisions align with `docs/PROJECT_PROFILE.md` and `docs/ARCHITECTURE_STYLE_GUIDE.md`.
 
+### Mandatory Enforcement
+- [ ] `docs/MANDATORY_ENFORCEMENT_POLICY.md` is satisfied.
+- [ ] No orchestration bypass occurred, or active waiver is documented.
+- [ ] Rules mode is `mandatory_all` for this run.
+- [ ] If waiver exists, owner/reason/expiry/affected_rules are documented.
+
 ## Decision Rule
 
 - `PASS`: all critical criteria satisfied.

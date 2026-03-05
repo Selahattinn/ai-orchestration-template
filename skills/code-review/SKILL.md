@@ -8,6 +8,10 @@
 ## Purpose
 Run a final quality gate focused on correctness, risks, and regressions.
 
+## Source of Truth
+- `docs/QUALITY_GATE.md`
+- `docs/MANDATORY_ENFORCEMENT_POLICY.md`
+
 ## Use When
 - Final artifacts from previous agents are ready.
 - A go/no-go decision is required.
@@ -18,6 +22,7 @@ Run a final quality gate focused on correctness, risks, and regressions.
 - Missing tests and blind spots are listed.
 - Operational risk and observability gaps are noted.
 - Final decision and next actions are explicit.
+- Mandatory policy and orchestration compliance are verified.
 
 ## Output Contract
 - Findings by severity
