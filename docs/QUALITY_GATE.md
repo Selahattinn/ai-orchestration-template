@@ -50,6 +50,8 @@ Use this checklist before accepting generated code output.
 
 ### Architecture Discipline
 - [ ] Architecture stage output includes the full contract from `skills/architecture/SKILL.md`.
+- [ ] Selected architecture pattern is active in `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`.
+- [ ] Pattern-specific skill output is present for the selected architecture.
 - [ ] Dependency matrix explicitly lists allowed and forbidden directions.
 - [ ] No circular dependency or core-to-adapter dependency exists.
 - [ ] Data ownership and transaction boundaries are explicit.

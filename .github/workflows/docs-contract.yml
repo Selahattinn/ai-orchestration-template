@@ -31,6 +31,7 @@ jobs:
               '.github/workflows/orchestration-contract.yml',
               'workflows/ORCHESTRATION_FLOW.md',
               'workflows/STAGE_CONTRACT.md',
+              'workflows/ARCHITECTURE_PATTERN_REGISTRY.md',
               'docs/MODEL_POLICY.md',
               'docs/COST_LATENCY_BUDGET.md',
               'docs/SECURITY_POLICY.md',
@@ -54,6 +55,9 @@ jobs:
               'tools/stage_orchestrator.py',
               'tools/validate_run.py',
               'runs/latest/manifest.json',
+              'skills/architecture-hexagonal/SKILL.md',
+              'skills/architecture-clean-layered/SKILL.md',
+              'skills/architecture-service-layered/SKILL.md',
           ]
 
           for rel in required_files:
@@ -124,6 +128,21 @@ jobs:
               for rule in required_contract_rules:
                   if rule not in contract:
                       errors.append(f'Stage contract missing rule: {rule}')
+
+          architecture_registry = repo / 'workflows/ARCHITECTURE_PATTERN_REGISTRY.md'
+          if architecture_registry.exists():
+              registry = architecture_registry.read_text(encoding='utf-8')
+              required_registry_rules = [
+                  '`hexagonal`',
+                  '`clean_layered`',
+                  '`service_layered`',
+                  'skills/architecture-hexagonal/SKILL.md',
+                  'skills/architecture-clean-layered/SKILL.md',
+                  'skills/architecture-service-layered/SKILL.md',
+              ]
+              for rule in required_registry_rules:
+                  if rule not in registry:
+                      errors.append(f'Architecture registry missing rule: {rule}')
 
           pr_template = repo / '.github/pull_request_template.md'
           if pr_template.exists():
