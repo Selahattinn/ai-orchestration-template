@@ -24,6 +24,7 @@ Use this rubric to score every orchestration run.
 ### Consistency
 - Are outputs aligned across stages and handoffs?
 - Are terms and decisions stable between agents?
+- Was mandatory orchestration flow preserved without bypass?
 
 ### Risk Awareness
 - Are critical risks identified and prioritized?

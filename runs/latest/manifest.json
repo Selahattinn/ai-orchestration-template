@@ -1,0 +1,61 @@
+{
+  "run_id": "latest",
+  "date_utc": "2026-03-05T14:30:00Z",
+  "rules_mode": "mandatory_all",
+  "orchestration_mode": "mandatory",
+  "orchestration_bypassed": false,
+  "waiver": {
+    "waiver_id": "",
+    "waiver_owner": "",
+    "waiver_reason": "",
+    "waiver_expiry_utc": "",
+    "affected_rules": []
+  },
+  "stage_order": [
+    "api_scope",
+    "go_fit_check",
+    "architecture",
+    "testing_plan",
+    "style_gate",
+    "final_review"
+  ],
+  "stages": [
+    {
+      "stage_id": "api_scope",
+      "status": "completed",
+      "artifact": "artifacts/01_api_scope.md",
+      "completed_at_utc": "2026-03-05T14:31:00Z"
+    },
+    {
+      "stage_id": "go_fit_check",
+      "status": "completed",
+      "artifact": "artifacts/02_go_fit_check.md",
+      "completed_at_utc": "2026-03-05T14:32:00Z"
+    },
+    {
+      "stage_id": "architecture",
+      "status": "completed",
+      "artifact": "artifacts/03_architecture.md",
+      "completed_at_utc": "2026-03-05T14:33:00Z"
+    },
+    {
+      "stage_id": "testing_plan",
+      "status": "completed",
+      "artifact": "artifacts/04_testing_plan.md",
+      "completed_at_utc": "2026-03-05T14:34:00Z"
+    },
+    {
+      "stage_id": "style_gate",
+      "status": "completed",
+      "artifact": "artifacts/05_style_gate.md",
+      "completed_at_utc": "2026-03-05T14:35:00Z"
+    },
+    {
+      "stage_id": "final_review",
+      "status": "completed",
+      "artifact": "artifacts/06_final_review.md",
+      "completed_at_utc": "2026-03-05T14:36:00Z"
+    }
+  ],
+  "run_log_path": "run_log.md"
+}

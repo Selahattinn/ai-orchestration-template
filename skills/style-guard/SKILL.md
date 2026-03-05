@@ -14,6 +14,7 @@ Enforce the project-specific Go coding style profile before final review.
 - `docs/FILE_HIERARCHY.md`
 - `docs/NAMING_STANDARD.md`
 - `docs/TESTING_STANDARD.md`
+- `docs/MANDATORY_ENFORCEMENT_POLICY.md`
 
 ## Use When
 - Any implementation proposal or code diff is produced.
@@ -32,6 +33,7 @@ Enforce the project-specific Go coding style profile before final review.
 - Package placement follows `cmd/internal/pkg/mocks` hierarchy rules.
 - Naming follows package/type/function/file rules in `docs/NAMING_STANDARD.md`.
 - Testing plan and evidence align with `docs/TESTING_STANDARD.md`.
+- Mandatory mode and orchestration compliance are explicitly confirmed.
 
 ## Output Contract
 - Style compliance score (0-4)

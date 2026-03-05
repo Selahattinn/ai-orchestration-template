@@ -1,0 +1,61 @@
+{
+  "run_id": "<run-id>",
+  "date_utc": "<ISO-8601-UTC>",
+  "rules_mode": "mandatory_all",
+  "orchestration_mode": "mandatory",
+  "orchestration_bypassed": false,
+  "waiver": {
+    "waiver_id": "",
+    "waiver_owner": "",
+    "waiver_reason": "",
+    "waiver_expiry_utc": "",
+    "affected_rules": []
+  },
+  "stage_order": [
+    "api_scope",
+    "go_fit_check",
+    "architecture",
+    "testing_plan",
+    "style_gate",
+    "final_review"
+  ],
+  "stages": [
+    {
+      "stage_id": "api_scope",
+      "status": "pending",
+      "artifact": "artifacts/01_api_scope.md",
+      "completed_at_utc": ""
+    },
+    {
+      "stage_id": "go_fit_check",
+      "status": "pending",
+      "artifact": "artifacts/02_go_fit_check.md",
+      "completed_at_utc": ""
+    },
+    {
+      "stage_id": "architecture",
+      "status": "pending",
+      "artifact": "artifacts/03_architecture.md",
+      "completed_at_utc": ""
+    },
+    {
+      "stage_id": "testing_plan",
+      "status": "pending",
+      "artifact": "artifacts/04_testing_plan.md",
+      "completed_at_utc": ""
+    },
+    {
+      "stage_id": "style_gate",
+      "status": "pending",
+      "artifact": "artifacts/05_style_gate.md",
+      "completed_at_utc": ""
+    },
+    {
+      "stage_id": "final_review",
+      "status": "pending",
+      "artifact": "artifacts/06_final_review.md",
+      "completed_at_utc": ""
+    }
+  ],
+  "run_log_path": "run_log.md"
+}
