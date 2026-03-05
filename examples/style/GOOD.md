@@ -25,7 +25,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/sirupsen/logrus"
+	"go.uber.org/zap"
 
 	"github.com/acme/project/internal/user/models"
 )
@@ -36,6 +36,20 @@ import (
 ```go
 // CreateUser validates input and persists a new user.
 func (h *handler) CreateUser(ctx context.Context, req CreateUserRequest) error {
+	h.logger.Infow("create user started",
+		"operation", "create_user",
+		"request_id", req.RequestID,
+	)
 	return nil
 }
+```
+
+## Logging Level and Structure
+
+```go
+h.logger.Warnw("retrying downstream call",
+	"operation", "sync_user",
+	"attempt", 2,
+	"backoff_ms", 300,
+)
 ```

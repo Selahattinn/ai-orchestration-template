@@ -18,6 +18,7 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `docs/IMPLEMENTATION_PROTOCOL.md`
 - `docs/QUALITY_GATE.md`
 - `docs/CODING_STYLE.md`
+- `docs/LOGGING_STANDARD.md`
 - `skills/*/SKILL.md`
 - `examples/TASK_EXAMPLES.md`
 - `examples/golden/*`

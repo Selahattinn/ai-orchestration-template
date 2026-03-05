@@ -28,11 +28,23 @@ Issue:
 
 ```go
 import (
-	"github.com/sirupsen/logrus"
 	"context"
+	"go.uber.org/zap"
 	"github.com/acme/project/internal/user/models"
 )
 ```
 
 Issue:
 - Order does not follow stdlib -> third-party -> internal grouping.
+
+## Logging Misuse
+
+```go
+fmt.Println("user created", req.Email)
+logger.Debugw("payment failed", "error", err)
+```
+
+Issue:
+- `fmt.Println` is used for operational logging.
+- Sensitive data is logged raw.
+- Failure case is logged at `Debugw` instead of `Errorw`.

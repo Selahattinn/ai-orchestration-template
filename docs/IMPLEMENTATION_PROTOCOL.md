@@ -13,6 +13,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 - Agent I/O contract: `workflows/AGENT_IO_CONTRACT.md`
 - Model and budget policy: `docs/MODEL_POLICY.md`, `docs/COST_LATENCY_BUDGET.md`
 - Coding style profile: `docs/CODING_STYLE.md`
+- Logging policy: `docs/LOGGING_STANDARD.md`
 
 ## Execution Flow
 
@@ -31,6 +32,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 4. Verification output
 - Define and run unit/integration checks where applicable.
 - Record untested areas and residual risks.
+- Validate logging level and structured-field usage.
 
 5. Style gate output
 - Validate generated code against `docs/CODING_STYLE.md`.

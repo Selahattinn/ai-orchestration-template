@@ -77,7 +77,7 @@ import (
 	"time"
 
 	gwda "github.com/livetesting-company/live-testing-ios-go-wda-lib"
-	"github.com/sirupsen/logrus"
+	"go.uber.org/zap"
 
 	"github.com/device-park/device-park-ios-health-service/internal/device/models"
 )
@@ -155,3 +155,26 @@ Rules:
 ## 7) Style Enforcement Priority
 
 When style conflicts with generic suggestions, this profile wins unless project constraints explicitly override it.
+
+## 8) Logging Preference (zap SugaredLogger)
+
+Use `zap.SugaredLogger` as the default logger API for business/application layers.
+
+```go
+// NewHandler creates a user handler.
+func NewHandler(repo Repository, logger *zap.SugaredLogger) Handler {
+	return &handler{repo: repo, logger: logger}
+}
+```
+
+Level rules:
+- `Debugw`: verbose diagnostics and temporary deep troubleshooting.
+- `Infow`: state transitions, successful operations, lifecycle events.
+- `Warnw`: recoverable anomalies, retries, degraded paths.
+- `Errorw`: failed operations and user-impacting or system-impacting errors.
+
+Rules:
+- Prefer structured logging (`Infow/Warnw/Errorw`) over formatted strings.
+- Include stable keys such as `request_id`, `operation`, and `error_code` where available.
+- Do not log secrets or raw sensitive data.
+- Keep one event per meaningful state transition.

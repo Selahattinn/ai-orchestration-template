@@ -32,3 +32,12 @@ Record key decisions and why they changed.
 - Consequences: Stronger consistency, fewer style regressions, explicit style scoring in run logs.
 - Supersedes: none
 - Links: docs/CODING_STYLE.md, workflows/AGENT_REGISTRY.md
+
+### DEC-003: zap SugaredLogger Logging Standard
+- Date: 2026-03-05
+- Status: accepted
+- Context: Team wants structured logging with simple ergonomics and explicit level policy.
+- Decision: Standardize on `zap` with `SugaredLogger` and enforce level rules via quality/style gates.
+- Consequences: Better consistency for operational logs, easier review of logging behavior, and clearer incident diagnostics.
+- Supersedes: none
+- Links: docs/LOGGING_STANDARD.md, docs/QUALITY_GATE.md

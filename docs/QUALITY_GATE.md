@@ -21,6 +21,12 @@ Use this checklist before accepting generated code output.
 - [ ] Function-level comments are present where required.
 - [ ] `ErrorBag` usage is consistent at domain boundaries.
 
+### Logging
+- [ ] Logging follows `docs/LOGGING_STANDARD.md`.
+- [ ] `zap` + `SugaredLogger` is used in application layer code.
+- [ ] Level usage is correct (`Debugw/Infow/Warnw/Errorw`).
+- [ ] Structured keys are present and sensitive data is not leaked.
+
 ### Testing
 - [ ] Unit/integration scope is defined.
 - [ ] Critical paths have test evidence or a clear gap note.

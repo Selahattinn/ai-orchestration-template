@@ -13,6 +13,7 @@ It is intentionally markdown-first so you can fork it and adapt agent behavior q
 - Eval rubric, golden examples, and edge-case references
 - Security, cost/latency, skill lifecycle, and run-log standards
 - Personal coding style profile and style-gate skill
+- `zap` SugaredLogger logging standard with level policy
 
 ## Core Principle
 
@@ -32,7 +33,8 @@ The repo is a planning and governance layer for orchestration.
 9. Apply implementation process in [`docs/IMPLEMENTATION_PROTOCOL.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/IMPLEMENTATION_PROTOCOL.md)
 10. Validate acceptance via [`docs/QUALITY_GATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/QUALITY_GATE.md)
 11. Apply style profile from [`docs/CODING_STYLE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/CODING_STYLE.md)
-12. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
+12. Apply logging policy from [`docs/LOGGING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/LOGGING_STANDARD.md)
+13. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
 
 ## Governance Stack
 
@@ -45,3 +47,4 @@ The repo is a planning and governance layer for orchestration.
 - Implementation process: [`docs/IMPLEMENTATION_PROTOCOL.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/IMPLEMENTATION_PROTOCOL.md)
 - Quality gate: [`docs/QUALITY_GATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/QUALITY_GATE.md)
 - Coding style profile: [`docs/CODING_STYLE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/CODING_STYLE.md)
+- Logging standard: [`docs/LOGGING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/LOGGING_STANDARD.md)

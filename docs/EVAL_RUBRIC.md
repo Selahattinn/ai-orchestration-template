@@ -35,6 +35,7 @@ Use this rubric to score every orchestration run.
 ### Style Match
 - Does output follow `docs/CODING_STYLE.md` rules?
 - Are context usage, import ordering, comments, and ErrorBag rules applied?
+- Are logging choices and levels aligned with `docs/LOGGING_STANDARD.md`?
 
 ## Final Grade
 

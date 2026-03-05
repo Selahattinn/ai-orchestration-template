@@ -11,7 +11,8 @@
 7. Add project-specific scenarios to `examples/TASK_EXAMPLES.md`.
 8. Validate with golden references under `examples/golden/`.
 9. Configure personal style in `docs/CODING_STYLE.md`.
-10. Save each run using `templates/RUN_LOG_TEMPLATE.md`.
+10. Configure logging policy in `docs/LOGGING_STANDARD.md`.
+11. Save each run using `templates/RUN_LOG_TEMPLATE.md`.
 
 ## Governance Rule
 
