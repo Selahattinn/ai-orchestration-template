@@ -184,6 +184,10 @@ def validate_manifest(
             continue
 
         record = stage_records[idx]
+        if not isinstance(record, dict):
+            errors.append(f"stage position {idx+1} record must be an object")
+            continue
+
         if record.get("stage_id") != stage["stage_id"]:
             errors.append(f"stage position {idx+1} expected {stage['stage_id']}")
             continue
@@ -307,7 +311,7 @@ def cmd_complete(args: argparse.Namespace) -> int:
         return 1
 
     pending["status"] = "completed"
-    pending["artifact"] = str(artifact_path.relative_to(run_dir))
+    pending["artifact"] = artifact_path.relative_to(run_dir).as_posix()
     pending["completed_at_utc"] = utc_now_iso()
     save_manifest(manifest_path, manifest)
 
