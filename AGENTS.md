@@ -77,6 +77,7 @@ Each agent entry must include:
 8. Follow-ups
 - `Validation` must never be empty or placeholder text.
 - Before opening or updating a PR, generate draft body and wait for user approval.
+- When creating/updating PR bodies via CLI, use `--body-file` only (do not use inline `--body`).
 - CI enforcement is defined in `.github/workflows/pr-body-contract.yml`.
 - Docs contract CI enforcement is defined in `.github/workflows/docs-contract.yml`.
 

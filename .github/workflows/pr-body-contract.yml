@@ -19,6 +19,10 @@ jobs:
             const required = ["Breaking Changes", "Migration Notes", "Validation"];
             const errors = [];
 
+            if (body.includes("\\n")) {
+              errors.push("PR body contains literal \\\\n characters. Use real line breaks and create/edit PR body via --body-file.");
+            }
+
             const escapeRegex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
             const extractSection = (title) => {
