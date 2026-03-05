@@ -19,8 +19,9 @@ jobs:
             const required = ["Breaking Changes", "Migration Notes", "Validation"];
             const errors = [];
 
-            if (body.includes("\\n")) {
-              errors.push("PR body contains literal \\\\n characters. Use real line breaks and create/edit PR body via --body-file.");
+            // Narrow false positives: fail only when escaped newlines are used as section separators.
+            if (body.includes("\\n## ")) {
+              errors.push("PR body appears to use escaped newlines for section headers. Use real line breaks and create/edit PR body via --body-file.");
             }
 
             const escapeRegex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

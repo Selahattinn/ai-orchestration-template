@@ -8,6 +8,7 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `workflows/AGENT_REGISTRY.md`
 - `workflows/AGENT_IO_CONTRACT.md`
 - `workflows/ORCHESTRATION_FLOW.md`
+- `workflows/STAGE_CONTRACT.md`
 - `docs/MODEL_POLICY.md`
 - `docs/COST_LATENCY_BUDGET.md`
 - `docs/EVAL_RUBRIC.md`
@@ -23,6 +24,7 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `docs/BOOTSTRAP_INTERVIEW.md`
 - `docs/ARCHITECTURE_STYLE_GUIDE.md`
 - `docs/MANDATORY_ENFORCEMENT_POLICY.md`
+- `docs/BRANCH_PROTECTION.md`
 - `docs/CODING_STYLE.md`
 - `docs/LOGGING_STANDARD.md`
 - `docs/FILE_HIERARCHY.md`
@@ -35,6 +37,9 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `examples/structure/*`
 - `examples/naming/*`
 - `examples/testing/*`
+- `runs/latest/manifest.json`
+- `tools/stage_orchestrator.py`
+- `tools/validate_run.py`
 
 ## Agent Record Schema
 
@@ -80,6 +85,7 @@ Each agent entry must include:
 - When creating/updating PR bodies via CLI, use `--body-file` only (do not use inline `--body`).
 - CI enforcement is defined in `.github/workflows/pr-body-contract.yml`.
 - Docs contract CI enforcement is defined in `.github/workflows/docs-contract.yml`.
+- Run contract CI enforcement is defined in `.github/workflows/orchestration-contract.yml`.
 
 ## Profile-Driven Startup
 

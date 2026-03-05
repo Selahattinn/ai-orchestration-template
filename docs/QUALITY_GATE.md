@@ -53,6 +53,8 @@ Use this checklist before accepting generated code output.
 - [ ] No orchestration bypass occurred, or active waiver is documented.
 - [ ] Rules mode is `mandatory_all` for this run.
 - [ ] If waiver exists, owner/reason/expiry/affected_rules are documented.
+- [ ] `workflows/STAGE_CONTRACT.md` stage order and artifact requirements are satisfied.
+- [ ] `runs/latest/manifest.json` passes CI run-contract validation.
 
 ## Decision Rule
 

@@ -16,6 +16,7 @@ Use this guide to bootstrap a new fork quickly.
 2. Fill `templates/PROJECT_BRIEF.md`.
 3. Update `workflows/AGENT_REGISTRY.md` for your agents/models.
 4. Confirm `workflows/ORCHESTRATION_FLOW.md` handoff order.
+5. Confirm `workflows/STAGE_CONTRACT.md` stage IDs and artifact paths.
 
 ## Minute 7-11: Standards Alignment
 
@@ -35,6 +36,7 @@ Use this guide to bootstrap a new fork quickly.
 2. Ensure `Breaking Changes`, `Migration Notes`, and `Validation` are non-empty in PRs.
 3. Add first follow-up items to `docs/NOW_NEXT_LATER.md`.
 4. Confirm no orchestration bypass is recorded without active waiver.
+5. Confirm required checks from `docs/BRANCH_PROTECTION.md` are active.
 
 ## Done Criteria
 

@@ -22,6 +22,9 @@ It is intentionally markdown-first so you can fork it and adapt agent behavior q
 - Project profile memory (ask once, persist, reuse)
 - Architecture style decision guide (hexagonal default, factory as supporting pattern)
 - Mandatory enforcement mode for all standards and orchestration
+- Stage-based orchestrator tool with artifact gating
+- CI run-contract checks for stage order, artifact presence, and waiver validity
+- Branch protection baseline for mandatory checks
 
 ## Core Principle
 
@@ -51,6 +54,9 @@ The repo is a planning and governance layer for orchestration.
 19. Enforce strict policy via [`docs/MANDATORY_ENFORCEMENT_POLICY.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/MANDATORY_ENFORCEMENT_POLICY.md)
 20. Track roadmap items in [`docs/NOW_NEXT_LATER.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NOW_NEXT_LATER.md)
 21. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
+22. Define stage artifacts in [`workflows/STAGE_CONTRACT.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/workflows/STAGE_CONTRACT.md)
+23. Initialize/advance runs with `python3 tools/stage_orchestrator.py`
+24. Enforce required checks from [`docs/BRANCH_PROTECTION.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/BRANCH_PROTECTION.md)
 
 ## Governance Stack
 
@@ -73,3 +79,5 @@ The repo is a planning and governance layer for orchestration.
 - Bootstrap interview: [`docs/BOOTSTRAP_INTERVIEW.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/BOOTSTRAP_INTERVIEW.md)
 - Architecture style guide: [`docs/ARCHITECTURE_STYLE_GUIDE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/ARCHITECTURE_STYLE_GUIDE.md)
 - Mandatory enforcement policy: [`docs/MANDATORY_ENFORCEMENT_POLICY.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/MANDATORY_ENFORCEMENT_POLICY.md)
+- Stage contract: [`workflows/STAGE_CONTRACT.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/workflows/STAGE_CONTRACT.md)
+- Branch protection standard: [`docs/BRANCH_PROTECTION.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/BRANCH_PROTECTION.md)

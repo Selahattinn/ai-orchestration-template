@@ -30,6 +30,7 @@ Waivers are temporary and must be removed after expiry.
 ## Run-Level Requirements
 
 - Run log must explicitly state ruleset mode and orchestration compliance.
+- Run manifest must satisfy `workflows/STAGE_CONTRACT.md`.
 - Final review must fail when orchestration is bypassed without an active waiver.
 - Missing mandatory standards => `BLOCK`.
 

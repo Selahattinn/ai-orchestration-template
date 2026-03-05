@@ -10,6 +10,8 @@ Every orchestration run should produce one run log entry.
 - input_summary
 - stages_executed
 - agent_sequence
+- run_manifest_path
+- stage_artifact_paths
 - model_usage
 - fallback_events
 - rules_mode
@@ -32,6 +34,7 @@ Every orchestration run should produce one run log entry.
 - Keep stage order identical to actual execution.
 - Include fallback reason and impact when fallback occurs.
 - Include links to generated artifacts.
+- Ensure `run_manifest_path` points to a valid manifest for this run.
 - Explicitly record mandatory-mode compliance and bypass status.
 
 ## Done Criteria

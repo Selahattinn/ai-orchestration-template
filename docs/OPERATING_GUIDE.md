@@ -11,16 +11,20 @@
 7. Align stage budgets in `docs/COST_LATENCY_BUDGET.md`.
 8. Customize `skills/*/SKILL.md` for your domain.
 9. Define agent handoff contracts in `workflows/AGENT_IO_CONTRACT.md`.
-10. Add project-specific scenarios to `examples/TASK_EXAMPLES.md`.
-11. Validate with golden references under `examples/golden/`.
-12. Configure personal style in `docs/CODING_STYLE.md`.
-13. Configure logging policy in `docs/LOGGING_STANDARD.md`.
-14. Configure project layout policy in `docs/FILE_HIERARCHY.md`.
-15. Configure naming policy in `docs/NAMING_STANDARD.md`.
-16. Configure testing policy in `docs/TESTING_STANDARD.md`.
-17. Follow the rapid checklist in `docs/QUICK_ONBOARDING.md`.
-18. Maintain active roadmap items in `docs/NOW_NEXT_LATER.md`.
-19. Save each run using `templates/RUN_LOG_TEMPLATE.md`.
+10. Keep stage definitions aligned in `workflows/STAGE_CONTRACT.md`.
+11. Initialize run manifest with `python3 tools/stage_orchestrator.py init --run-dir runs/<run_id>`.
+12. Complete stages in order using `python3 tools/stage_orchestrator.py complete`.
+13. Add project-specific scenarios to `examples/TASK_EXAMPLES.md`.
+14. Validate with golden references under `examples/golden/`.
+15. Configure personal style in `docs/CODING_STYLE.md`.
+16. Configure logging policy in `docs/LOGGING_STANDARD.md`.
+17. Configure project layout policy in `docs/FILE_HIERARCHY.md`.
+18. Configure naming policy in `docs/NAMING_STANDARD.md`.
+19. Configure testing policy in `docs/TESTING_STANDARD.md`.
+20. Follow the rapid checklist in `docs/QUICK_ONBOARDING.md`.
+21. Maintain active roadmap items in `docs/NOW_NEXT_LATER.md`.
+22. Save each run using `templates/RUN_LOG_TEMPLATE.md`.
+23. Enforce branch rules from `docs/BRANCH_PROTECTION.md`.
 
 ## Governance Rule
 

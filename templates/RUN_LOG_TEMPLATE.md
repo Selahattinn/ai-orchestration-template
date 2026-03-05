@@ -3,6 +3,8 @@
 - date_utc:
 - project_context:
 - input_summary:
+- run_manifest_path:
+- stage_artifact_paths:
 - rules_mode: mandatory_all
 - orchestration_mode: mandatory
 - orchestration_bypassed: false

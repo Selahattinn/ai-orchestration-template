@@ -28,7 +28,9 @@ jobs:
               'AGENTS.md',
               'README.md',
               '.github/pull_request_template.md',
+              '.github/workflows/orchestration-contract.yml',
               'workflows/ORCHESTRATION_FLOW.md',
+              'workflows/STAGE_CONTRACT.md',
               'docs/MODEL_POLICY.md',
               'docs/COST_LATENCY_BUDGET.md',
               'docs/SECURITY_POLICY.md',
@@ -45,8 +47,13 @@ jobs:
               'docs/BOOTSTRAP_INTERVIEW.md',
               'docs/ARCHITECTURE_STYLE_GUIDE.md',
               'docs/MANDATORY_ENFORCEMENT_POLICY.md',
+              'docs/BRANCH_PROTECTION.md',
               'docs/NOW_NEXT_LATER.md',
               'docs/QUICK_ONBOARDING.md',
+              'templates/RUN_MANIFEST_TEMPLATE.json',
+              'tools/stage_orchestrator.py',
+              'tools/validate_run.py',
+              'runs/latest/manifest.json',
           ]
 
           for rel in required_files:
@@ -68,6 +75,7 @@ jobs:
               'docs/BOOTSTRAP_INTERVIEW.md',
               'docs/ARCHITECTURE_STYLE_GUIDE.md',
               'docs/MANDATORY_ENFORCEMENT_POLICY.md',
+              'docs/BRANCH_PROTECTION.md',
           ]
 
           for rel in standards_with_done:
@@ -84,6 +92,7 @@ jobs:
                   'rules_mode: mandatory_all',
                   'orchestration_mode: mandatory',
                   'bypass_policy: prohibited',
+                  'exception_policy: explicit_waiver_only',
               ]
               for flag in required_flags:
                   if flag not in content:
@@ -99,6 +108,22 @@ jobs:
               for rule in required_flow_rules:
                   if rule not in flow:
                       errors.append(f'Orchestration flow missing rule: {rule}')
+
+          stage_contract = repo / 'workflows/STAGE_CONTRACT.md'
+          if stage_contract.exists():
+              contract = stage_contract.read_text(encoding='utf-8')
+              required_contract_rules = [
+                  'stage_id: api_scope',
+                  'stage_id: go_fit_check',
+                  'stage_id: architecture',
+                  'stage_id: testing_plan',
+                  'stage_id: style_gate',
+                  'stage_id: final_review',
+                  'CI fails when stage order, artifact presence, or waiver rules are violated.',
+              ]
+              for rule in required_contract_rules:
+                  if rule not in contract:
+                      errors.append(f'Stage contract missing rule: {rule}')
 
           pr_template = repo / '.github/pull_request_template.md'
           if pr_template.exists():

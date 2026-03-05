@@ -1,0 +1,22 @@
+name: Orchestration Contract
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-run-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate stage contract and run artifacts
+        run: |
+          python3 tools/validate_run.py \
+            --repo-root . \
+            --run-dir runs/latest \
+            --contract workflows/STAGE_CONTRACT.md
