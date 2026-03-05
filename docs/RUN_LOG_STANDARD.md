@@ -25,3 +25,9 @@ Every orchestration run should produce one run log entry.
 - Keep stage order identical to actual execution.
 - Include fallback reason and impact when fallback occurs.
 - Include links to generated artifacts.
+
+## Done Criteria
+
+- Required run-log fields are listed and stable.
+- Fallback and artifact-link recording rules are explicit.
+- The standard is aligned with `templates/RUN_LOG_TEMPLATE.md`.

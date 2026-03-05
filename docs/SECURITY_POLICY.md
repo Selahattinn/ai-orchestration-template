@@ -28,3 +28,9 @@ Before finalization, verify:
 - No policy conflicts
 - No unsupported guarantees
 - Risk notes are present for uncertain decisions
+
+## Done Criteria
+
+- Prompt-injection, data handling, and high-risk action rules are documented.
+- Output safety checks are listed and actionable.
+- Human-approval requirements are explicit.

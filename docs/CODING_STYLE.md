@@ -207,3 +207,9 @@ Rules:
 - Use behavior-oriented test names.
 - Prefer table-driven style where multiple cases exist.
 - Keep tests deterministic and avoid `time.Sleep`-based synchronization.
+
+## Done Criteria
+
+- Core coding preferences (interfaces, context, comments, imports, errors) are explicit.
+- Logging, hierarchy, naming, and testing references are linked.
+- No contradictory style rules remain.

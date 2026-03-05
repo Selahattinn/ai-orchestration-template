@@ -44,3 +44,9 @@ Avoid dumping full internals of `Cause` when it may contain sensitive data.
 - `fmt.Println` for runtime operational logs.
 - Unstructured free-text logs without stable fields.
 - Logging the same error repeatedly without attempt counters.
+
+## Done Criteria
+
+- Logger choice and level policy are explicit.
+- Required structured keys and security redaction rules are documented.
+- ErrorBag logging guidance is clear for application errors.

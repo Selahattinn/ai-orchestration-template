@@ -15,7 +15,9 @@
 11. Configure project layout policy in `docs/FILE_HIERARCHY.md`.
 12. Configure naming policy in `docs/NAMING_STANDARD.md`.
 13. Configure testing policy in `docs/TESTING_STANDARD.md`.
-14. Save each run using `templates/RUN_LOG_TEMPLATE.md`.
+14. Follow the rapid checklist in `docs/QUICK_ONBOARDING.md`.
+15. Maintain active roadmap items in `docs/NOW_NEXT_LATER.md`.
+16. Save each run using `templates/RUN_LOG_TEMPLATE.md`.
 
 ## Governance Rule
 

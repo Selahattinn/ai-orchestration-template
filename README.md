@@ -17,6 +17,8 @@ It is intentionally markdown-first so you can fork it and adapt agent behavior q
 - Go file hierarchy contract (`cmd/internal/pkg/mocks`)
 - Go naming contract for packages, types, methods, files, and mocks
 - Testing contract for TDD, test layers, mocks, and CI expectations
+- Now/Next/Later backlog for incremental roadmap tracking
+- 15-minute onboarding guide for new forks
 
 ## Core Principle
 
@@ -40,7 +42,9 @@ The repo is a planning and governance layer for orchestration.
 13. Apply file hierarchy policy from [`docs/FILE_HIERARCHY.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/FILE_HIERARCHY.md)
 14. Apply naming policy from [`docs/NAMING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NAMING_STANDARD.md)
 15. Apply testing policy from [`docs/TESTING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/TESTING_STANDARD.md)
-16. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
+16. Review quick setup in [`docs/QUICK_ONBOARDING.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/QUICK_ONBOARDING.md)
+17. Track roadmap items in [`docs/NOW_NEXT_LATER.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NOW_NEXT_LATER.md)
+18. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
 
 ## Governance Stack
 
@@ -57,3 +61,5 @@ The repo is a planning and governance layer for orchestration.
 - File hierarchy standard: [`docs/FILE_HIERARCHY.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/FILE_HIERARCHY.md)
 - Naming standard: [`docs/NAMING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NAMING_STANDARD.md)
 - Testing standard: [`docs/TESTING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/TESTING_STANDARD.md)
+- Quick onboarding: [`docs/QUICK_ONBOARDING.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/QUICK_ONBOARDING.md)
+- Rolling roadmap: [`docs/NOW_NEXT_LATER.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NOW_NEXT_LATER.md)

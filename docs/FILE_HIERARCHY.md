@@ -74,3 +74,9 @@ Canonical Go project layout policy for this template.
 - Dumping all files under `internal/` root with no bounded structure.
 - Moving unstable code to `pkg/` too early.
 - Handwritten mocks that drift from interfaces.
+
+## Done Criteria
+
+- Directory responsibilities for `cmd`, `internal`, `pkg`, and `mocks` are explicit.
+- Placement rules and anti-patterns are documented.
+- Example hierarchy remains consistent with policy.

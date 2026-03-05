@@ -69,3 +69,9 @@ Canonical naming rules for Go code generated under this template.
 - Inconsistent acronym formatting (`HttpID`, `UrlID`).
 - Reusing the same name for unrelated concepts.
 - Generic file/package names that hide intent.
+
+## Done Criteria
+
+- Naming rules cover package/type/function/variable/file/test/mock levels.
+- Anti-patterns are documented with clear examples.
+- Rules are aligned with coding style and hierarchy policies.

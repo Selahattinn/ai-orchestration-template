@@ -24,3 +24,9 @@ Default budget policy per orchestration stage.
 - No more than `10` model calls per run unless explicitly approved.
 - No repeated retry loops with the same prompt over `2` attempts.
 - Record any escalation in the run log.
+
+## Done Criteria
+
+- Every orchestration stage has a budget row.
+- Escalation and hard-limit rules are explicit.
+- Budget policy is aligned with current agent flow.

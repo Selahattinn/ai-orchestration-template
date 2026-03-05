@@ -1,0 +1,117 @@
+name: Docs Contract
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate docs contract
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import re
+          import sys
+
+          repo = pathlib.Path('.').resolve()
+          errors = []
+
+          required_files = [
+              'AGENTS.md',
+              'README.md',
+              '.github/pull_request_template.md',
+              'docs/MODEL_POLICY.md',
+              'docs/COST_LATENCY_BUDGET.md',
+              'docs/SECURITY_POLICY.md',
+              'docs/EVAL_RUBRIC.md',
+              'docs/RUN_LOG_STANDARD.md',
+              'docs/CODING_STYLE.md',
+              'docs/LOGGING_STANDARD.md',
+              'docs/FILE_HIERARCHY.md',
+              'docs/NAMING_STANDARD.md',
+              'docs/TESTING_STANDARD.md',
+              'docs/QUALITY_GATE.md',
+              'docs/IMPLEMENTATION_PROTOCOL.md',
+              'docs/NOW_NEXT_LATER.md',
+              'docs/QUICK_ONBOARDING.md',
+          ]
+
+          for rel in required_files:
+              if not (repo / rel).exists():
+                  errors.append(f'Missing required file: {rel}')
+
+          standards_with_done = [
+              'docs/MODEL_POLICY.md',
+              'docs/COST_LATENCY_BUDGET.md',
+              'docs/SECURITY_POLICY.md',
+              'docs/EVAL_RUBRIC.md',
+              'docs/RUN_LOG_STANDARD.md',
+              'docs/CODING_STYLE.md',
+              'docs/LOGGING_STANDARD.md',
+              'docs/FILE_HIERARCHY.md',
+              'docs/NAMING_STANDARD.md',
+              'docs/TESTING_STANDARD.md',
+          ]
+
+          for rel in standards_with_done:
+              path = repo / rel
+              if path.exists():
+                  content = path.read_text(encoding='utf-8')
+                  if '## Done Criteria' not in content:
+                      errors.append(f'Missing "## Done Criteria" section: {rel}')
+
+          pr_template = repo / '.github/pull_request_template.md'
+          if pr_template.exists():
+              content = pr_template.read_text(encoding='utf-8')
+              required_sections = [
+                  '## Context',
+                  '## What Changed',
+                  '## Why It Matters',
+                  '## Risks and Trade-offs',
+                  '## Breaking Changes',
+                  '## Migration Notes',
+                  '## Validation',
+                  '## Follow-ups',
+              ]
+              for section in required_sections:
+                  if section not in content:
+                      errors.append(f'PR template missing section: {section}')
+
+          link_pattern = re.compile(r'\[[^\]]+\]\(([^)]+)\)')
+          md_files = [p for p in repo.rglob('*.md') if '.git/' not in str(p)]
+
+          for md in md_files:
+              text = md.read_text(encoding='utf-8')
+              for raw_link in link_pattern.findall(text):
+                  link = raw_link.strip()
+                  if not link:
+                      continue
+                  if link.startswith(('http://', 'https://', 'mailto:', '#', '/')):
+                      continue
+                  if '://' in link:
+                      continue
+
+                  target = link.split('#', 1)[0].strip()
+                  if not target:
+                      continue
+
+                  target_path = (md.parent / target).resolve()
+                  if not target_path.exists():
+                      errors.append(f'Broken relative link in {md.relative_to(repo)}: {link}')
+
+          if errors:
+              print('Docs contract failed:')
+              for e in errors:
+                  print(f'- {e}')
+              sys.exit(1)
+
+          print('Docs contract passed.')
+          PY

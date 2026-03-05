@@ -52,3 +52,9 @@ Use this rubric to score every orchestration run.
 - 3 strongest points
 - 3 highest-impact gaps
 - Decision: `pass`, `revise`, or `block`
+
+## Done Criteria
+
+- All scoring criteria are defined with clear scale semantics.
+- Pass/borderline/fail thresholds are explicit.
+- Required evaluation output format is documented.

@@ -16,7 +16,7 @@ jobs:
         with:
           script: |
             const body = (context.payload.pull_request.body || "").replace(/\r/g, "");
-            const required = ["Breaking Changes", "Migration Notes"];
+            const required = ["Breaking Changes", "Migration Notes", "Validation"];
             const errors = [];
 
             const escapeRegex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -30,12 +30,13 @@ jobs:
               return match ? match[1].trim() : null;
             };
 
-            const isPlaceholder = (text) => {
+            const isPlaceholder = (text, section) => {
               const normalized = text.trim().toLowerCase();
               if (normalized.length === 0) return true;
 
+              const allowShort = section === "Breaking Changes" || section === "Migration Notes";
               const allowedShortAnswers = ["none", "none.", "not required", "not required."];
-              if (allowedShortAnswers.includes(normalized)) return false;
+              if (allowShort && allowedShortAnswers.includes(normalized)) return false;
 
               const blocked = ["tbd", "todo", "n/a", "na", "...", "-", "*"];
               return blocked.includes(normalized);
@@ -49,7 +50,7 @@ jobs:
                 continue;
               }
 
-              if (isPlaceholder(value)) {
+              if (isPlaceholder(value, section)) {
                 errors.push(`Section \"${section}\" is empty or placeholder content.`);
               }
             }
@@ -59,8 +60,8 @@ jobs:
                 "PR description contract failed:",
                 ...errors.map((e) => `- ${e}`),
                 "",
-                "Required sections: Breaking Changes, Migration Notes.",
-                "Allowed short values: 'None' or 'Not required'."
+                "Required sections: Breaking Changes, Migration Notes, Validation.",
+                "Allowed short values ('None', 'Not required') are only for Breaking Changes and Migration Notes."
               ].join("\n"));
             } else {
               core.info("PR description contract passed.");

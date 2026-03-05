@@ -29,3 +29,9 @@ This file standardizes model usage for all agents.
 
 - Use one expensive step per stage unless escalation is justified.
 - Prefer mini-first draft and high-model final validation for long tasks.
+
+## Done Criteria
+
+- Model selection, fallback, and parameter rules are explicitly documented.
+- At least one cost/latency guardrail is defined.
+- No unresolved TBD placeholders remain.

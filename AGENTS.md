@@ -17,6 +17,8 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `docs/DECISIONS.md`
 - `docs/IMPLEMENTATION_PROTOCOL.md`
 - `docs/QUALITY_GATE.md`
+- `docs/NOW_NEXT_LATER.md`
+- `docs/QUICK_ONBOARDING.md`
 - `docs/CODING_STYLE.md`
 - `docs/LOGGING_STANDARD.md`
 - `docs/FILE_HIERARCHY.md`
@@ -69,5 +71,7 @@ Each agent entry must include:
 6. Migration Notes
 7. Validation
 8. Follow-ups
+- `Validation` must never be empty or placeholder text.
 - Before opening or updating a PR, generate draft body and wait for user approval.
 - CI enforcement is defined in `.github/workflows/pr-body-contract.yml`.
+- Docs contract CI enforcement is defined in `.github/workflows/docs-contract.yml`.

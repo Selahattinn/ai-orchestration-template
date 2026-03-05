@@ -84,3 +84,9 @@ Canonical testing policy for Go services in this template.
 - Asserting private internals instead of public behavior.
 - Long, multi-behavior tests with unclear failure cause.
 - Skipping tests silently without traceable reason.
+
+## Done Criteria
+
+- TDD workflow and test-layer responsibilities are explicit.
+- Mocking, coverage, flaky-policy, and CI expectations are documented.
+- Test naming and deterministic execution rules are clear.

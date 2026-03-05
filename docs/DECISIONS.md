@@ -68,3 +68,12 @@ Record key decisions and why they changed.
 - Consequences: Better regression safety, clearer test expectations, and faster PR review alignment.
 - Supersedes: none
 - Links: docs/TESTING_STANDARD.md, docs/QUALITY_GATE.md
+
+### DEC-007: Docs Quality and Onboarding Contract
+- Date: 2026-03-05
+- Status: accepted
+- Context: Team wants standards to remain consistent over time and onboarding to stay fast.
+- Decision: Add `docs-contract` CI checks, a `Now/Next/Later` backlog, and a 15-minute onboarding guide.
+- Consequences: Better documentation consistency, clearer prioritization, and faster fork setup.
+- Supersedes: none
+- Links: .github/workflows/docs-contract.yml, docs/NOW_NEXT_LATER.md, docs/QUICK_ONBOARDING.md
