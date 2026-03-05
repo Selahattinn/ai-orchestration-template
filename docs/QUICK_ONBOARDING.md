@@ -9,6 +9,7 @@ Use this guide to bootstrap a new fork quickly.
 3. Confirm required docs are present.
 4. Read `README.md` and `AGENTS.md` once end-to-end.
 5. Confirm strict mode policy in `docs/MANDATORY_ENFORCEMENT_POLICY.md`.
+6. Confirm worktree policy in `docs/WORKTREE_STANDARD.md`.
 
 ## Minute 3-7: Project Configuration
 
@@ -17,6 +18,7 @@ Use this guide to bootstrap a new fork quickly.
 3. Update `workflows/AGENT_REGISTRY.md` for your agents/models.
 4. Confirm `workflows/ORCHESTRATION_FLOW.md` handoff order.
 5. Confirm `workflows/STAGE_CONTRACT.md` stage IDs and artifact paths.
+6. Confirm `worktree_setup` stage exists and is first.
 
 ## Minute 7-11: Standards Alignment
 
@@ -37,6 +39,7 @@ Use this guide to bootstrap a new fork quickly.
 3. Add first follow-up items to `docs/NOW_NEXT_LATER.md`.
 4. Confirm no orchestration bypass is recorded without active waiver.
 5. Confirm required checks from `docs/BRANCH_PROTECTION.md` are active.
+6. Confirm each stage in run manifest has unique worktree path and branch.
 
 ## Done Criteria
 

@@ -48,6 +48,12 @@ Use this checklist before accepting generated code output.
 - [ ] Next actions are clear and prioritized.
 - [ ] Architecture decisions align with `docs/PROJECT_PROFILE.md` and `docs/ARCHITECTURE_STYLE_GUIDE.md`.
 
+### Worktree Discipline
+- [ ] Worktree rules follow `docs/WORKTREE_STANDARD.md`.
+- [ ] `worktree_setup` artifact exists and is non-empty.
+- [ ] Every stage has a unique `worktree_path` and `worktree_branch` in run manifest.
+- [ ] No stage is executed outside its assigned worktree.
+
 ### Architecture Discipline
 - [ ] Architecture stage output includes the full contract from `skills/architecture/SKILL.md`.
 - [ ] Selected architecture pattern is active in `workflows/ARCHITECTURE_PATTERN_REGISTRY.md`.
@@ -65,6 +71,7 @@ Use this checklist before accepting generated code output.
 - [ ] `docs/MANDATORY_ENFORCEMENT_POLICY.md` is satisfied.
 - [ ] No orchestration bypass occurred, or active waiver is documented.
 - [ ] Rules mode is `mandatory_all` for this run.
+- [ ] Worktree mode is `mandatory` for this run.
 - [ ] If waiver exists, owner/reason/expiry/affected_rules are documented.
 - [ ] `workflows/STAGE_CONTRACT.md` stage order and artifact requirements are satisfied.
 - [ ] `runs/latest/manifest.json` passes CI run-contract validation.

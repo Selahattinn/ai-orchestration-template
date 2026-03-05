@@ -3,6 +3,8 @@
   "date_utc": "<ISO-8601-UTC>",
   "rules_mode": "mandatory_all",
   "orchestration_mode": "mandatory",
+  "worktree_mode": "mandatory",
+  "worktree_strategy": "per_stage",
   "orchestration_bypassed": false,
   "waiver": {
     "waiver_id": "",
@@ -12,6 +14,7 @@
     "affected_rules": []
   },
   "stage_order": [
+    "worktree_setup",
     "api_scope",
     "go_fit_check",
     "architecture",
@@ -21,39 +24,59 @@
   ],
   "stages": [
     {
+      "stage_id": "worktree_setup",
+      "status": "pending",
+      "artifact": "artifacts/00_worktree_setup.md",
+      "worktree_path": "worktrees/<run-id>/00_worktree_setup",
+      "worktree_branch": "codex/<run-id>-worktree-setup",
+      "completed_at_utc": ""
+    },
+    {
       "stage_id": "api_scope",
       "status": "pending",
       "artifact": "artifacts/01_api_scope.md",
+      "worktree_path": "worktrees/<run-id>/01_api_scope",
+      "worktree_branch": "codex/<run-id>-api-scope",
       "completed_at_utc": ""
     },
     {
       "stage_id": "go_fit_check",
       "status": "pending",
       "artifact": "artifacts/02_go_fit_check.md",
+      "worktree_path": "worktrees/<run-id>/02_go_fit_check",
+      "worktree_branch": "codex/<run-id>-go-fit-check",
       "completed_at_utc": ""
     },
     {
       "stage_id": "architecture",
       "status": "pending",
       "artifact": "artifacts/03_architecture.md",
+      "worktree_path": "worktrees/<run-id>/03_architecture",
+      "worktree_branch": "codex/<run-id>-architecture",
       "completed_at_utc": ""
     },
     {
       "stage_id": "testing_plan",
       "status": "pending",
       "artifact": "artifacts/04_testing_plan.md",
+      "worktree_path": "worktrees/<run-id>/04_testing_plan",
+      "worktree_branch": "codex/<run-id>-testing-plan",
       "completed_at_utc": ""
     },
     {
       "stage_id": "style_gate",
       "status": "pending",
       "artifact": "artifacts/05_style_gate.md",
+      "worktree_path": "worktrees/<run-id>/05_style_gate",
+      "worktree_branch": "codex/<run-id>-style-gate",
       "completed_at_utc": ""
     },
     {
       "stage_id": "final_review",
       "status": "pending",
       "artifact": "artifacts/06_final_review.md",
+      "worktree_path": "worktrees/<run-id>/06_final_review",
+      "worktree_branch": "codex/<run-id>-final-review",
       "completed_at_utc": ""
     }
   ],

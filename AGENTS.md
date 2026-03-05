@@ -27,11 +27,13 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `docs/HEXAGONAL_BOUNDARY_STANDARD.md`
 - `docs/MANDATORY_ENFORCEMENT_POLICY.md`
 - `docs/BRANCH_PROTECTION.md`
+- `docs/WORKTREE_STANDARD.md`
 - `docs/CODING_STYLE.md`
 - `docs/LOGGING_STANDARD.md`
 - `docs/FILE_HIERARCHY.md`
 - `docs/NAMING_STANDARD.md`
 - `docs/TESTING_STANDARD.md`
+- `skills/worktree-setup/SKILL.md`
 - `skills/*/SKILL.md`
 - `examples/TASK_EXAMPLES.md`
 - `examples/golden/*`
@@ -63,6 +65,7 @@ Each agent entry must include:
 
 - API Design
 - Go Idioms
+- Worktree Setup
 - Architecture Router
 - Architecture Hexagonal
 - Architecture Clean Layered
@@ -103,4 +106,6 @@ Each agent entry must include:
 
 - Rules mode is `mandatory_all` (no optional standards).
 - Agent orchestration mode is `mandatory` (no single-agent bypass).
+- Worktree mode is `mandatory` with `per_stage` strategy.
+- All agents must execute in dedicated stage worktrees per `docs/WORKTREE_STANDARD.md`.
 - Any exception requires a documented waiver per `docs/MANDATORY_ENFORCEMENT_POLICY.md`.

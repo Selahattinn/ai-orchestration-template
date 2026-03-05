@@ -11,6 +11,7 @@ Living backlog for iterative improvements.
 | Add docs contract CI check | platform | done | 2026-03-05 |
 | Add profile-driven startup memory and architecture policy | platform | done | 2026-03-05 |
 | Enforce mandatory-all rules and mandatory orchestration policy | platform | done | 2026-03-05 |
+| Enforce mandatory per-stage git worktree usage | platform | done | 2026-03-05 |
 | Keep docs contracts synchronized with quality gate | platform | in_progress | 2026-03-06 |
 
 ## Next

@@ -4,6 +4,9 @@ Machine-checked contract for stage order and artifact requirements.
 
 ## Ordered Stages
 
+- stage_id: worktree_setup
+  stage_name: Worktree Setup
+  artifact: artifacts/00_worktree_setup.md
 - stage_id: api_scope
   stage_name: API Scope
   artifact: artifacts/01_api_scope.md
@@ -28,6 +31,7 @@ Machine-checked contract for stage order and artifact requirements.
 - Stages must be completed exactly in the declared order.
 - A stage is complete only when its artifact file exists and is non-empty.
 - Next stage cannot start until previous stage is complete.
+- `worktree_setup` must be completed before any implementation or design stage.
 - `final_review` cannot be completed before all earlier stages are complete.
 
 ## Waiver Rules
@@ -44,7 +48,7 @@ Machine-checked contract for stage order and artifact requirements.
 ## CI Contract
 
 - CI validates `runs/latest/manifest.json` against this stage contract.
-- CI fails when stage order, artifact presence, or waiver rules are violated.
+- CI fails when stage order, artifact presence, waiver rules, or worktree policy rules are violated.
 
 ## Done Criteria
 

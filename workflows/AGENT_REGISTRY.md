@@ -21,6 +21,19 @@ Single source of truth for orchestration agents and model selections.
 
 ## Default Agents
 
+### worktree_manager
+- purpose: prepares mandatory per-stage git worktree mapping and blocks invalid setup
+- primary_model: gpt-5-mini
+- fallback_model: gpt-5-nano
+- temperature: 0.1
+- max_output_tokens: 900
+- latency_target: fast
+- cost_tier: low
+- skill_file: skills/worktree-setup/SKILL.md
+- io_contract_ref: workflows/AGENT_IO_CONTRACT.md
+- handoff_to: api_designer
+- done_criteria: stage-to-worktree map and branch plan are complete and valid
+
 ### api_designer
 - purpose: defines API boundaries, endpoint contracts, and versioning
 - primary_model: gpt-5

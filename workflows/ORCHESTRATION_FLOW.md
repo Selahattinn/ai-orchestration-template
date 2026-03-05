@@ -1,5 +1,10 @@
 # Orchestration Flow
 
+## Stage 0: Worktree Setup (`worktree_setup`)
+- Agent: `worktree_manager`
+- Skill: `skills/worktree-setup/SKILL.md`
+- Output: stage-to-worktree mapping, branch plan, and setup validation
+
 ## Stage 1: API Scope (`api_scope`)
 - Agent: `api_designer`
 - Skill: `skills/api-design/SKILL.md`
@@ -32,6 +37,7 @@
 
 ## Handoff Rules
 - Every stage must produce a named artifact for the next stage.
+- Every stage must run in its dedicated git worktree from the Stage 0 mapping.
 - If fallback model is used, record reason and impact.
 - `done` is allowed only after reviewer stage.
 - Every stage output must follow `workflows/AGENT_IO_CONTRACT.md`.

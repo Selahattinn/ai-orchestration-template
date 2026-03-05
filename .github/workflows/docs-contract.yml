@@ -49,6 +49,7 @@ jobs:
               'docs/ARCHITECTURE_STYLE_GUIDE.md',
               'docs/HEXAGONAL_BOUNDARY_STANDARD.md',
               'docs/MANDATORY_ENFORCEMENT_POLICY.md',
+              'docs/WORKTREE_STANDARD.md',
               'docs/BRANCH_PROTECTION.md',
               'docs/NOW_NEXT_LATER.md',
               'docs/QUICK_ONBOARDING.md',
@@ -56,9 +57,7 @@ jobs:
               'tools/stage_orchestrator.py',
               'tools/validate_run.py',
               'runs/latest/manifest.json',
-              'skills/architecture-hexagonal/SKILL.md',
-              'skills/architecture-clean-layered/SKILL.md',
-              'skills/architecture-service-layered/SKILL.md',
+              'skills/worktree-setup/SKILL.md',
           ]
 
           for rel in required_files:
@@ -81,6 +80,7 @@ jobs:
               'docs/ARCHITECTURE_STYLE_GUIDE.md',
               'docs/HEXAGONAL_BOUNDARY_STANDARD.md',
               'docs/MANDATORY_ENFORCEMENT_POLICY.md',
+              'docs/WORKTREE_STANDARD.md',
               'docs/BRANCH_PROTECTION.md',
           ]
 
@@ -97,6 +97,7 @@ jobs:
               required_flags = [
                   'rules_mode: mandatory_all',
                   'orchestration_mode: mandatory',
+                  'worktree_mode: mandatory',
                   'bypass_policy: prohibited',
                   'exception_policy: explicit_waiver_only',
               ]
@@ -110,6 +111,7 @@ jobs:
               required_flow_rules = [
                   'Orchestration bypass is prohibited',
                   'Single-agent direct completion is invalid',
+                  'Every stage must run in its dedicated git worktree',
               ]
               for rule in required_flow_rules:
                   if rule not in flow:
@@ -119,26 +121,53 @@ jobs:
           if stage_contract.exists():
               contract = stage_contract.read_text(encoding='utf-8')
               required_contract_rules = [
+                  'stage_id: worktree_setup',
                   'stage_id: api_scope',
                   'stage_id: go_fit_check',
                   'stage_id: architecture',
                   'stage_id: testing_plan',
                   'stage_id: style_gate',
                   'stage_id: final_review',
-                  'CI fails when stage order, artifact presence, or waiver rules are violated.',
+                  'CI fails when stage order, artifact presence, waiver rules, or worktree policy rules are violated.',
               ]
               for rule in required_contract_rules:
                   if rule not in contract:
                       errors.append(f'Stage contract missing rule: {rule}')
 
+              declared_stage_ids = []
+              for raw in contract.splitlines():
+                  line = raw.strip()
+                  if line.startswith('- stage_id:'):
+                      declared_stage_ids.append(line.split(':', 1)[1].strip())
+
+              if not declared_stage_ids:
+                  errors.append('Stage contract must declare at least one stage_id')
+              elif declared_stage_ids[0] != 'worktree_setup':
+                  errors.append('Stage contract must declare worktree_setup as the first stage')
+
           architecture_registry = repo / 'workflows/ARCHITECTURE_PATTERN_REGISTRY.md'
           if architecture_registry.exists():
               registry = architecture_registry.read_text(encoding='utf-8')
-              row_pattern = re.compile(
-                  r'^\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|\s*`([^`]+)`\s*\|',
-                  re.MULTILINE,
-              )
-              rows = row_pattern.findall(registry)
+              rows = []
+              for raw in registry.splitlines():
+                  line = raw.strip()
+                  if not line.startswith('|'):
+                      continue
+
+                  cells = [cell.strip() for cell in line.strip('|').split('|')]
+                  if len(cells) < 4:
+                      continue
+
+                  first_four = cells[:4]
+                  if first_four[0].lower() == 'pattern_id':
+                      continue
+
+                  if all(re.fullmatch(r':?-{3,}:?', cell) for cell in first_four):
+                      continue
+
+                  cleaned = tuple(cell.strip().strip('`').strip() for cell in first_four)
+                  if all(cleaned):
+                      rows.append(cleaned)
 
               if not rows:
                   errors.append('Architecture registry has no valid pattern rows')
@@ -193,6 +222,19 @@ jobs:
               for rule in required_hex_rules:
                   if rule not in content:
                       errors.append(f'Hexagonal standard missing section: {rule}')
+
+          worktree_standard = repo / 'docs/WORKTREE_STANDARD.md'
+          if worktree_standard.exists():
+              content = worktree_standard.read_text(encoding='utf-8')
+              required_worktree_rules = [
+                  '## Mandatory Rules',
+                  '## Stage 0 Requirement',
+                  '## Validation Rules',
+                  '## Block Conditions',
+              ]
+              for rule in required_worktree_rules:
+                  if rule not in content:
+                      errors.append(f'Worktree standard missing section: {rule}')
 
           pr_template = repo / '.github/pull_request_template.md'
           if pr_template.exists():
