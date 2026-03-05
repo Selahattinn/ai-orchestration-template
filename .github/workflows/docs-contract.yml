@@ -40,6 +40,9 @@ jobs:
               'docs/TESTING_STANDARD.md',
               'docs/QUALITY_GATE.md',
               'docs/IMPLEMENTATION_PROTOCOL.md',
+              'docs/PROJECT_PROFILE.md',
+              'docs/BOOTSTRAP_INTERVIEW.md',
+              'docs/ARCHITECTURE_STYLE_GUIDE.md',
               'docs/NOW_NEXT_LATER.md',
               'docs/QUICK_ONBOARDING.md',
           ]
@@ -59,6 +62,9 @@ jobs:
               'docs/FILE_HIERARCHY.md',
               'docs/NAMING_STANDARD.md',
               'docs/TESTING_STANDARD.md',
+              'docs/PROJECT_PROFILE.md',
+              'docs/BOOTSTRAP_INTERVIEW.md',
+              'docs/ARCHITECTURE_STYLE_GUIDE.md',
           ]
 
           for rel in standards_with_done:

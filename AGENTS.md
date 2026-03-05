@@ -19,6 +19,9 @@ It defines roles, models, skills, and handoffs without shipping runtime code.
 - `docs/QUALITY_GATE.md`
 - `docs/NOW_NEXT_LATER.md`
 - `docs/QUICK_ONBOARDING.md`
+- `docs/PROJECT_PROFILE.md`
+- `docs/BOOTSTRAP_INTERVIEW.md`
+- `docs/ARCHITECTURE_STYLE_GUIDE.md`
 - `docs/CODING_STYLE.md`
 - `docs/LOGGING_STANDARD.md`
 - `docs/FILE_HIERARCHY.md`
@@ -75,3 +78,10 @@ Each agent entry must include:
 - Before opening or updating a PR, generate draft body and wait for user approval.
 - CI enforcement is defined in `.github/workflows/pr-body-contract.yml`.
 - Docs contract CI enforcement is defined in `.github/workflows/docs-contract.yml`.
+
+## Profile-Driven Startup
+
+- Repository language is always English.
+- On first run, if `docs/PROJECT_PROFILE.md` is incomplete, run `docs/BOOTSTRAP_INTERVIEW.md`.
+- Persist answers in `docs/PROJECT_PROFILE.md` and do not re-ask the same questions.
+- In later runs, ask only for missing fields or explicit user-requested changes.

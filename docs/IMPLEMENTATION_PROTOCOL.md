@@ -8,10 +8,12 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 
 ## Required Inputs
 
+- Project profile: `docs/PROJECT_PROFILE.md`
 - Project brief: `templates/PROJECT_BRIEF.md`
 - Agent definitions: `workflows/AGENT_REGISTRY.md`
 - Agent I/O contract: `workflows/AGENT_IO_CONTRACT.md`
 - Model and budget policy: `docs/MODEL_POLICY.md`, `docs/COST_LATENCY_BUDGET.md`
+- Architecture style guide: `docs/ARCHITECTURE_STYLE_GUIDE.md`
 - Coding style profile: `docs/CODING_STYLE.md`
 - Logging policy: `docs/LOGGING_STANDARD.md`
 - File hierarchy policy: `docs/FILE_HIERARCHY.md`
@@ -21,6 +23,7 @@ Produce code that is correct, testable, and reviewable with explicit artifacts.
 ## Execution Flow
 
 1. Scope and assumptions
+- If project profile is incomplete, run `docs/BOOTSTRAP_INTERVIEW.md` first.
 - Clarify constraints, non-goals, and acceptance criteria.
 - Mark unknowns explicitly.
 

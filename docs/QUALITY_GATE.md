@@ -46,6 +46,7 @@ Use this checklist before accepting generated code output.
 - [ ] Assumptions and limitations are explicit.
 - [ ] Rollback/mitigation notes exist for risky changes.
 - [ ] Next actions are clear and prioritized.
+- [ ] Architecture decisions align with `docs/PROJECT_PROFILE.md` and `docs/ARCHITECTURE_STYLE_GUIDE.md`.
 
 ## Decision Rule
 

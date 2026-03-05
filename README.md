@@ -19,6 +19,8 @@ It is intentionally markdown-first so you can fork it and adapt agent behavior q
 - Testing contract for TDD, test layers, mocks, and CI expectations
 - Now/Next/Later backlog for incremental roadmap tracking
 - 15-minute onboarding guide for new forks
+- Project profile memory (ask once, persist, reuse)
+- Architecture style decision guide (hexagonal default, factory as supporting pattern)
 
 ## Core Principle
 
@@ -43,8 +45,10 @@ The repo is a planning and governance layer for orchestration.
 14. Apply naming policy from [`docs/NAMING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NAMING_STANDARD.md)
 15. Apply testing policy from [`docs/TESTING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/TESTING_STANDARD.md)
 16. Review quick setup in [`docs/QUICK_ONBOARDING.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/QUICK_ONBOARDING.md)
-17. Track roadmap items in [`docs/NOW_NEXT_LATER.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NOW_NEXT_LATER.md)
-18. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
+17. Bootstrap or update [`docs/PROJECT_PROFILE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/PROJECT_PROFILE.md) via [`docs/BOOTSTRAP_INTERVIEW.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/BOOTSTRAP_INTERVIEW.md)
+18. Confirm architecture choice via [`docs/ARCHITECTURE_STYLE_GUIDE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/ARCHITECTURE_STYLE_GUIDE.md)
+19. Track roadmap items in [`docs/NOW_NEXT_LATER.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NOW_NEXT_LATER.md)
+20. Record each run with [`templates/RUN_LOG_TEMPLATE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/templates/RUN_LOG_TEMPLATE.md)
 
 ## Governance Stack
 
@@ -63,3 +67,6 @@ The repo is a planning and governance layer for orchestration.
 - Testing standard: [`docs/TESTING_STANDARD.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/TESTING_STANDARD.md)
 - Quick onboarding: [`docs/QUICK_ONBOARDING.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/QUICK_ONBOARDING.md)
 - Rolling roadmap: [`docs/NOW_NEXT_LATER.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/NOW_NEXT_LATER.md)
+- Project profile: [`docs/PROJECT_PROFILE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/PROJECT_PROFILE.md)
+- Bootstrap interview: [`docs/BOOTSTRAP_INTERVIEW.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/BOOTSTRAP_INTERVIEW.md)
+- Architecture style guide: [`docs/ARCHITECTURE_STYLE_GUIDE.md`](/Users/selahattinceylan/Documents/personal/projects/ai-orchestration-template/docs/ARCHITECTURE_STYLE_GUIDE.md)

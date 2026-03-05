@@ -77,3 +77,12 @@ Record key decisions and why they changed.
 - Consequences: Better documentation consistency, clearer prioritization, and faster fork setup.
 - Supersedes: none
 - Links: .github/workflows/docs-contract.yml, docs/NOW_NEXT_LATER.md, docs/QUICK_ONBOARDING.md
+
+### DEC-008: Profile-Driven Startup and Architecture Policy
+- Date: 2026-03-05
+- Status: accepted
+- Context: Template should ask project questions once, persist context, and reuse it in later runs.
+- Decision: Add project profile + bootstrap interview flow, with hexagonal as default architecture and factory as supporting pattern.
+- Consequences: Less repetitive questioning, stronger architectural consistency, and faster iteration in subsequent runs.
+- Supersedes: none
+- Links: docs/PROJECT_PROFILE.md, docs/BOOTSTRAP_INTERVIEW.md, docs/ARCHITECTURE_STYLE_GUIDE.md
